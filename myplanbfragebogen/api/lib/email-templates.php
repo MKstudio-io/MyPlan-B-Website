@@ -30,7 +30,8 @@ function buildAppLink(string $variantId, array $answers): string {
     }
 
     $json    = json_encode($contextData, JSON_UNESCAPED_UNICODE);
-    $encoded = base64_encode($json);
+    // URL-safe base64: replace +→- /→_ and strip =
+    $encoded = rtrim(strtr(base64_encode($json), '+/', '-_'), '=');
 
     return "{$appBaseUrl}/analyse?modus={$variantId}&contextData={$encoded}";
 }
