@@ -84,6 +84,7 @@ $lastName    = trim($answers['last_name'] ?? '');
 $clientEmail = trim($answers['email'] ?? '');
 
 $emailData = [
+    'variantId'    => $variantId,
     'variantTitle' => $variantTitle ?: ($variant['shortTitle'] ?? $variantTitle),
     'steps'        => $variant['steps'],
     'answers'      => $answers,

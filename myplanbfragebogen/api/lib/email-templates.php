@@ -1,6 +1,40 @@
 <?php
 // Email templates - port of config/email-templates.ts
 
+/**
+ * Build the app link with encoded context data for the advisor.
+ * Excludes birth data (handled separately via HD chart) and contact fields.
+ */
+function buildAppLink(string $variantId, array $answers): string {
+    $appBaseUrl = 'https://my-plan-b-app.vercel.app';
+
+    // Fields to exclude (birth data + contact/GDPR + honeypot)
+    $excludeFields = [
+        'birth_date', 'birth_time', 'birth_place',
+        'first_name', 'last_name', 'email', 'phone', 'gdpr_consent',
+        '_hp_field', '_started_at'
+    ];
+
+    $contextData = [];
+    foreach ($answers as $key => $value) {
+        if (in_array($key, $excludeFields)) continue;
+        if ($value === null || $value === '') continue;
+        $contextData[$key] = $value;
+    }
+
+    // Add client name from contact fields
+    $firstName = trim($answers['first_name'] ?? '');
+    $lastName  = trim($answers['last_name'] ?? '');
+    if ($firstName || $lastName) {
+        $contextData['_client_name'] = trim("$firstName $lastName");
+    }
+
+    $json    = json_encode($contextData, JSON_UNESCAPED_UNICODE);
+    $encoded = base64_encode($json);
+
+    return "{$appBaseUrl}/analyse?modus={$variantId}&contextData={$encoded}";
+}
+
 function buildAdvisorEmail(array $data): array {
     $variantTitle = $data['variantTitle'];
     $steps        = $data['steps'];
@@ -18,8 +52,14 @@ function buildAdvisorEmail(array $data): array {
     $textBody = formatAnswersText($steps, $answers);
     $htmlBody = formatAnswersHtml($steps, $answers);
 
+    // Build app link for quick import
+    $variantId = $data['variantId'] ?? '';
+    $appLink   = $variantId ? buildAppLink($variantId, $answers) : '';
+    $appLinkText = $appLink ? "\n\n→ Direkt in der App öffnen:\n$appLink\n" : '';
+
     $text = "Neuer Fragebogen eingegangen\n===========================\n\n"
-          . "Variante: $variantTitle\nEingegangen am: $date um $time\n\n"
+          . "Variante: $variantTitle\nEingegangen am: $date um $time\n"
+          . $appLinkText . "\n"
           . $textBody . "\n\n---\nAutomatisch versendet vom myplanb Fragebogen.";
 
     $vtEsc = htmlspecialchars($variantTitle, ENT_QUOTES, 'UTF-8');
@@ -35,6 +75,23 @@ function buildAdvisorEmail(array $data): array {
       <strong>{$vtEsc}</strong> &middot; {$date} um {$time}
     </p>
   </div>
+HTML;
+
+    // Add app link button to HTML
+    if (!empty($appLink)) {
+        $appLinkEsc = htmlspecialchars($appLink, ENT_QUOTES, 'UTF-8');
+        $html .= <<<HTML
+
+  <div style="background: #EBF8FF; border-radius: 8px; padding: 20px; margin-bottom: 24px; text-align: center;">
+    <p style="margin: 0 0 12px; font-weight: 600; color: #2D3748;">Daten direkt in die App übernehmen:</p>
+    <a href="{$appLinkEsc}" style="display: inline-block; background: #1B6E7C; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500;">
+      In MY PLAN B App öffnen
+    </a>
+  </div>
+HTML;
+    }
+
+    $html .= <<<HTML
 
   {$htmlBody}
 
