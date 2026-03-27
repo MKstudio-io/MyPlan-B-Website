@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY PLAN B – Orientierung, die passt</title>
+<meta name="description" content="MY PLAN B ist ein persönliches Orientierungsprofil für Jugendliche und Erwachsene. Konkrete Wege statt Standardtests – in Österreich, mit echten Optionen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --petrol: #1B6E7C;
+    --petrol-dark: #155A66;
+    --amber: #FFBD59;
+    --peach: #E89F7B;
+    --bg: #F7F5F2;
+    --petrol-light: #E4F0F2;
+    --cream: #FDF8F3;
+    --dark: #2D2D2D;
+    --gray: #6B6B6B;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--petrol);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(21,90,102,0.3);
+    transition: background 0.3s;
+  }
+  nav .nav-logo { height: 42px; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    opacity: 0.85;
+    transition: opacity 0.25s;
+  }
+  nav ul li a:hover { opacity: 1; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(165deg, var(--petrol) 0%, var(--petrol-dark) 55%, #0f4a54 100%);
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255,189,89,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -15%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,159,123,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+  }
+  .hero-logo {
+    width: 585px;
+    margin-bottom: 2.5rem;
+    animation: fadeDown 1s ease-out;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    color: var(--white);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 1s ease-out 0.2s both;
+  }
+  .hero h1 .highlight {
+    color: var(--amber);
+  }
+  .hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.15rem;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    animation: fadeUp 1s ease-out 0.4s both;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--amber);
+    color: var(--petrol-dark);
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeUp 1s ease-out 0.6s both;
+    box-shadow: 0 4px 25px rgba(255,189,89,0.3);
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 35px rgba(255,189,89,0.45);
+  }
+  .hero-cta svg { width: 18px; height: 18px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    color: var(--petrol-dark);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── PAIN POINTS ── */
+  .pain {
+    background: var(--cream);
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 2.5rem 0;
+  }
+  .pain-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.5rem 1.5rem 1.5rem 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border: 1px solid rgba(27,110,124,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pain-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(27,110,124,0.08);
+  }
+  .pain-icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: var(--petrol-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  .pain-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: var(--petrol-dark);
+    margin-bottom: 0.3rem;
+  }
+  .pain-card p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .pain-bridge {
+    background: var(--peach);
+    border-radius: 14px;
+    padding: 2rem 2.5rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .pain-bridge p {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: var(--petrol-dark);
+    font-weight: 600;
+  }
+  .pain-bridge p span {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    margin-top: 0.6rem;
+    color: var(--dark);
+  }
+
+  /* ── WHY / LÖSUNG ── */
+  .why { background: var(--bg); }
+  .why-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .why-text p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+  }
+  .why-points {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+  .why-points li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.02rem;
+    border-bottom: 1px solid rgba(27,110,124,0.1);
+  }
+  .why-points li:last-child { border-bottom: none; }
+  .why-points li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--petrol);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .why-visual {
+    background: var(--petrol);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-visual::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,189,89,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .why-visual h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .why-visual .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+  .why-visual .stat-icon {
+    font-size: 1.4rem;
+  }
+  .why-visual .stat p {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  /* ── SO FUNKTIONIERT'S ── */
+  .process { background: var(--petrol-light); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+    margin-top: 3rem;
+  }
+  .step {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(27,110,124,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(27,110,124,0.1);
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px; height: 52px;
+    background: var(--petrol);
+    color: var(--white);
+    border-radius: 50%;
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .step h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    color: var(--petrol-dark);
+    margin-bottom: 0.8rem;
+  }
+  .step p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .step-btn {
+    display: inline-block;
+    margin-top: 0;
+    background: var(--petrol);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .step-btn:hover {
+    background: var(--petrol-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(27,110,124,0.25);
+  }
+  .process-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  .process-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    text-align: left;
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(27,110,124,0.15);
+    border-radius: 14px;
+    padding: 0.9rem 1.6rem;
+    margin-top: 1.4rem;
+  }
+  .process-note-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .process-note p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .process-note strong {
+    color: var(--petrol-dark);
+  }
+  .step-connector {
+    display: none;
+  }
+
+  /* ── PREISE ── */
+  .pricing {
+    background: var(--bg);
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .price-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 2px solid rgba(27,110,124,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(27,110,124,0.12);
+    border-color: var(--petrol);
+  }
+  .price-card.featured {
+    border-color: var(--amber);
+    box-shadow: 0 15px 50px rgba(27,110,124,0.15);
+  }
+  .price-card.featured:hover {
+    border-color: var(--peach);
+  }
+  .price-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    margin-bottom: 1rem;
+  }
+  .price-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: var(--petrol-dark);
+    margin-bottom: 1rem;
+  }
+  .price-amount {
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    color: var(--amber);
+    font-weight: 700;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .price-amount span {
+    font-size: 1.2rem;
+    color: var(--gray);
+  }
+  .price-description {
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  .price-features li {
+    padding: 0.7rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--dark);
+    border-bottom: 1px solid rgba(27,110,124,0.08);
+  }
+  .price-features li:last-child {
+    border-bottom: none;
+  }
+  .price-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--petrol);
+    font-weight: 700;
+  }
+  .price-cta {
+    display: inline-block;
+    background: var(--petrol);
+    color: var(--white);
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .price-cta:hover {
+    background: var(--petrol-dark);
+    transform: translateY(-2px);
+  }
+  .price-card.featured .price-cta {
+    background: var(--amber);
+    color: var(--petrol-dark);
+  }
+  .price-card.featured .price-cta:hover {
+    background: var(--peach);
+  }
+
+  /* ── HILFT BEI ── */
+  .helps { background: var(--cream); }
+  .helps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .helps-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border-top: 4px solid var(--petrol);
+    transition: transform 0.3s;
+  }
+  .helps-card:nth-child(2) { border-top-color: var(--amber); }
+  .helps-card:nth-child(3) { border-top-color: var(--peach); }
+  .helps-card:hover { transform: translateY(-3px); }
+  .helps-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .helps-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    color: var(--petrol-dark);
+    margin-bottom: 0.8rem;
+  }
+  .helps-card p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial {
+    background: var(--petrol);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .testimonial-inner {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .testimonial-quote {
+    font-size: 2.5rem;
+    color: var(--amber);
+    font-family: 'Lora', serif;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .testimonial blockquote {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.7;
+    opacity: 0.95;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial cite {
+    font-style: normal;
+    font-size: 0.95rem;
+    opacity: 0.7;
+  }
+
+  /* ── ZIELGRUPPEN / FÜR WEN ── */
+  .audiences { background: var(--bg); }
+  .audience-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .audience-tab {
+    padding: 0.7rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 2px solid var(--petrol);
+    background: transparent;
+    color: var(--petrol);
+    transition: all 0.3s;
+  }
+  .audience-tab.active,
+  .audience-tab:hover {
+    background: var(--petrol);
+    color: var(--white);
+  }
+  .audience-panel { display: none; }
+  .audience-panel.active { display: block; }
+  .audience-panel-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .audience-desc h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: var(--petrol-dark);
+    margin-bottom: 1rem;
+  }
+  .audience-desc p {
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+  .audience-features {
+    background: var(--petrol-light);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .audience-features h4 {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--petrol-dark);
+    margin-bottom: 1rem;
+  }
+  .audience-features ul {
+    list-style: none;
+  }
+  .audience-features ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .audience-features ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--petrol);
+    font-weight: 700;
+  }
+
+  /* ── ÜBER MICH ── */
+  .about {
+    background: var(--petrol-light);
+  }
+  .about-content {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--petrol);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--amber);
+  }
+  .about-text h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    color: var(--petrol-dark);
+    margin-bottom: 1.2rem;
+  }
+  .about-text p {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+  .about-credentials {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .credential {
+    background: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--petrol-dark);
+    border: 1px solid rgba(27,110,124,0.12);
+  }
+
+  /* ── KONTAKT / CTA ── */
+  .contact {
+    background: var(--cream);
+    text-align: center;
+  }
+  .contact-inner {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .contact .section-title {
+    margin-bottom: 1rem;
+  }
+  .contact-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 2.5rem;
+  }
+  .contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .contact-method:hover { color: var(--petrol); }
+  .contact-method .cm-icon {
+    width: 48px; height: 48px;
+    background: var(--petrol);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--petrol);
+    color: var(--white);
+    padding: 1.1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    box-shadow: 0 4px 25px rgba(27,110,124,0.2);
+  }
+  .contact-cta:hover {
+    background: var(--petrol-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 35px rgba(27,110,124,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--petrol-dark);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 2.5rem 2rem;
+  }
+  footer .footer-logo { height: 36px; margin-bottom: 1rem; opacity: 0.8; }
+  footer p { font-size: 0.85rem; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-links {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .footer-links a { font-size: 0.85rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .pain-grid { grid-template-columns: 1fr; }
+    .why-content { grid-template-columns: 1fr; }
+    .why-visual { order: -1; }
+    .steps { grid-template-columns: 1fr; }
+    .process-note { margin-top: 1.2rem; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .helps-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .audience-panel-content { grid-template-columns: 1fr; }
+    .about-content { grid-template-columns: 1fr; }
+    .about-photo { max-width: 280px; }
+  }
+
+  @media (max-width: 700px) {
+    nav ul { 
+      display: none;
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: var(--petrol);
+      flex-direction: column;
+      padding: 1rem 2rem 1.5rem;
+      gap: 0.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    nav ul.open { display: flex; }
+    nav ul li a { font-size: 1rem; padding: 0.5rem 0; display: block; }
+    .nav-toggle { display: block; }
+    section { padding: 3.5rem 1.2rem; }
+    .hero { padding: 7rem 1.2rem 4rem; }
+    .hero-logo { width: 300px; }
+    .contact-methods { flex-direction: column; align-items: center; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="Logo_PlanB_ohneText_white_transparent.png" alt="MY PLAN B" class="nav-logo">
+  <button class="nav-toggle" aria-label="Menü öffnen" onclick="document.querySelector('nav ul').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="#start">Start</a></li>
+    <li><a href="#angebot">Angebot</a></li>
+    <li><a href="#so-funktionierts">So funktioniert's</a></li>
+    <li><a href="#ueber-mich">Über mich</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="vortrag.html">Nächster Termin →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="start">
+  <div class="hero-content">
+    <img src="Logo_Plan_w-transparent.png" alt="MY PLAN B – Orientierung, die passt" class="hero-logo">
+    <h1>Welcher Weg passt <span class="highlight">wirklich?</span></h1>
+    <p>Schulwechsel, Lehre, Matura. Wenn niemand weiß, wohin es gehen soll. MY PLAN B liefert echte Klarheit. Für Ihr Kind. Für Sie.</p>
+    <a href="vortrag.html" class="hero-cta">
+      Zur Vortragsanmeldung
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <div style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.65);">✦ Aktuell in der Pilotphase – offizieller Start Sommer 2026</div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain" id="angebot">
+  <div class="container reveal">
+    <div class="section-label">Kommt Ihnen das bekannt vor?</div>
+    <h2 class="section-title">Das erleben viele Familien – Sie sind nicht allein.</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">📉</div>
+        <div>
+          <h3>Noten im Sinkflug</h3>
+          <p>Trotz Anstrengung werden die Leistungen schlechter – und niemand versteht warum.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😔</div>
+        <div>
+          <h3>Rückzug und Unmut</h3>
+          <p>Wirkt unmotiviert, unglücklich, zieht sich zurück – das Lachen fehlt.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📱</div>
+        <div>
+          <h3>Handy statt Hausaufgaben</h3>
+          <p>Ablenkung scheint interessanter als alles, was die Schule bietet.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💬</div>
+        <div>
+          <h3>Feedback der Lehrkräfte</h3>
+          <p>„Abwesend. Träumt. Nimmt nicht teil." – aber was steckt dahinter?</p>
+        </div>
+      </div>
+    </div>
+    <div class="pain-bridge">
+      <p>Häufig ist es keine Faulheit.
+          <span>Die Frage ist: Wie ist dieser junge Mensch für diese Welt aufgestellt - und was braucht er oder sie wirklich?</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WARUM MY PLAN B -->
+<section class="why">
+  <div class="container reveal">
+    <div class="why-content">
+      <div class="why-text">
+        <div class="section-label">Warum MY PLAN B?</div>
+        <h2 class="section-title">Keine Schubladen.<br>Keine Standardtests.<br>Sondern Klarheit.</h2>
+        <p>Standardtests liefern oft Ergebnisse, mit denen niemand etwas anfangen kann. „Du könntest alles werden" ist keine Orientierung. Jeder Mensch tickt anders – aber das wird oft übersehen.</p>
+        <p>MY PLAN B ist ein persönliches Orientierungsprofil: Wer ist dieser junge Mensch? Wie lernt und entscheidet er oder sie? Welche Schulen, Lehrberufe oder Studienrichtungen passen – <strong>konkret, in Österreich, mit echten Optionen.</strong></p>
+      </div>
+      <div class="why-visual">
+        <h3>Was Sie erfahren</h3>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Warum der klassische Bildungsweg für viele nicht mehr funktioniert</p>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Wie unterschiedliche Persönlichkeiten unterschiedlich lernen und entscheiden</p>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Was junge Menschen wirklich brauchen, um ihren Weg zu finden</p>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Konkrete nächste Schritte – individuell und umsetzbar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS IST PLAN B? -->
+<section class="why" id="was-ist-plan-b">
+  <div class="container reveal">
+    <div class="why-content">
+      <div class="why-text">
+        <div class="section-label">Was ist Plan B?</div>
+        <h2 class="section-title">Sie sind nicht Plan B.<br>Ihr Kind auch nicht.</h2>
+        <p>Plan B kennen die meisten als den Ausweichplan, wenn Plan A scheitert. Bei MY PLAN B ist es genau umgekehrt. <strong>Plan B ist der Plan, der wirklich passt.</strong> Der Menschen orientiert statt standardisiert.</p>
+        <p style="margin-top: 1.5rem;">Stellen Sie sich ein Dokument vor – 15 bis 20 Seiten – das beschreibt, wie Sie von Natur aus ticken. Wie Sie lernen, wie Sie Entscheidungen treffen, was Sie antreibt. Und dann, ganz konkret: welche Berufe, Schulen oder Ausbildungen wirklich passen. Mit echten Optionen aus Österreich.</p>
+        <p style="margin-top: 1rem;"><strong>Keine Theorie. Eine Landkarte.</strong></p>
+      </div>
+      <div class="why-visual">
+        <h3>Wie das Profil entsteht</h3>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Aus Ihrer Persönlichkeitsstruktur und systemischen Methoden</p>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Aus echten Daten österreichischer Bildungsdatenbanken</p>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Abgestimmt auf Ihre aktuelle Situation</p>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">✦</span>
+          <p>Konkret, persönlich, brauchbar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SO FUNKTIONIERT'S -->
+<section class="process" id="so-funktionierts">
+  <div class="container reveal">
+    <div class="section-label" style="text-align:center">In 4 Schritten</div>
+    <h2 class="section-title" style="text-align:center">So funktioniert MY PLAN B</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Fragebogen ausfüllen</h3>
+        <p>Sie beantworten ein paar gezielte Fragen zu Situation, Interessen und Hintergrund. Dauert ca. 5 Minuten.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Persönliches Profil</h3>
+        <p>Auf Basis Ihrer Angaben erstellen wir ein umfassendes Orientierungsprofil mit konkreten Empfehlungen für Schulen, Lehrberufe oder Studienrichtungen.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Beratungsgespräch</h3>
+        <p>In einem persönlichen 50-minütigen Gespräch besprechen wir das Profil gemeinsam und erarbeiten die besten nächsten Schritte für Ihre Situation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Ergebnis &amp; Klarheit</h3>
+        <p>Sie erhalten Ihr persönliches Orientierungsprofil schriftlich: mit klaren Optionen, konkreten nächsten Schritten und einer Empfehlung, die wirklich passt.</p>
+      </div>
+    </div>
+    <div class="process-note">
+      <span class="process-note-icon">🎯</span>
+      <p>
+        <strong>Pilotphase bis Sommer 2026 – Sonderkonditionen sichern!</strong><br>
+        Der Fragebogen ist kostenlos. Mit der Terminvereinbarung wird die Buchung verbindlich. Die Zahlung erfolgt gesondert danach.<br>
+        <em style="font-size:0.78rem;color:var(--gray);margin-top:0.4rem;display:block;text-align:left;">Bei Absage weniger als 48 Stunden vor dem Termin oder bei Nichterscheinen wird der volle Betrag in Rechnung gestellt.</em>
+      </p>
+    </div>
+    <div class="process-cta">
+      <a href="/myplanbfragebogen/" class="step-btn">Jetzt Fragebogen starten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;width:1.2em;height:1.2em;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- PREISE -->
+<section class="pricing" id="preise">
+  <div class="container reveal">
+    <div class="section-label" style="text-align:center">Investition in Klarheit</div>
+    <h2 class="section-title" style="text-align:center">Preise</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">Einzelberatung</div>
+        <h3>MY PLAN B Orientierungsprofil</h3>
+        <div class="price-amount">€ 149</div>
+        <p class="price-description">Vollständiges Profil + Gespräch</p>
+        <ul class="price-features">
+          <li>Persönliches Orientierungsprofil</li>
+          <li>50 min Beratungsgespräch</li>
+          <li>Konkrete Optionen in Österreich</li>
+          <li>Vertraulich & individuell</li>
+        </ul>
+        <a href="/myplanbfragebogen/" class="price-cta">Mein Profil starten</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-label">Limitiertes Pilotprojekt • Nur 15 Plätze</div>
+        <h3>MY PLAN B Orientierungsprofil</h3>
+        <div class="price-amount">€ 79</div>
+        <p class="price-description">Vollständiges Profil + Gespräch</p>
+        <ul class="price-features">
+          <li>Persönliches Orientierungsprofil</li>
+          <li>50 min Beratungsgespräch</li>
+          <li>Konkrete Optionen in Österreich</li>
+          <li>Anonymisiertes Praxisbeispiel möglich*</li>
+        </ul>
+        <a href="vortrag.html" class="price-cta">Zur Vortrag-Anmeldung</a>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:2.5rem; font-size:0.9rem; color:var(--gray);">
+      * Mit Ihrer Zustimmung kann Ihr Fall anonymisiert als Praxisbeispiel im Vortrag oder für die Weiterentwicklung von MY PLAN B verwendet werden. Keine Verpflichtung.
+    </p>
+  </div>
+</section>
+
+<!-- HILFT BEI -->
+<section class="helps">
+  <div class="container reveal">
+    <div class="section-label" style="text-align:center">Anwendungsbereiche</div>
+    <h2 class="section-title" style="text-align:center">MY PLAN B hilft bei</h2>
+    <div class="helps-grid">
+      <div class="helps-card">
+        <div class="card-icon">📚</div>
+        <h3>Schulwechsel</h3>
+        <p>VS → Gymnasium oder Mittelschule. MS → Höhere Schule oder Lehre. Matura → Studium oder Arbeit. Wir finden den richtigen nächsten Schritt.</p>
+      </div>
+      <div class="helps-card">
+        <div class="card-icon">🚨</div>
+        <h3>Akute Situationen</h3>
+        <p>Schlechte Noten trotz Anstrengung, Motivationsverlust, Rückzug – wenn das Kind „nicht ins System passt", liegt es selten am Kind.</p>
+      </div>
+      <div class="helps-card">
+        <div class="card-icon">🌱</div>
+        <h3>Frühes Verstehen</h3>
+        <p>Schon bei jüngeren Kindern: Wer ist dieser junge Mensch? Wie begleite ich ihn am besten? Früh verstehen heißt besser begleiten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-inner reveal">
+    <div class="testimonial-quote">„</div>
+    <blockquote>15 Jahre, HTL, Noten im Sinkflug. Lehrer sagten: Er träumt, ist abwesend. MY PLAN B zeigte einen völlig anderen Lerntyp – praktisch, im richtigen Umfeld voller Energie. Nach Schnuppertagen fiel die Wahl auf eine Mechatronik-Lehre mit IT-Schwerpunkt. Heute ist er wie ausgewechselt.</blockquote>
+    <cite>– Mutter eines Jugendlichen aus Tirol</cite>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section class="audiences">
+  <div class="container reveal">
+    <div class="section-label">Für wen ist MY PLAN B?</div>
+    <h2 class="section-title">Orientierung für jede Lebensphase</h2>
+    <div class="audience-tabs">
+      <button class="audience-tab active" data-tab="jugend">Jugendliche &amp; Eltern</button>
+      <button class="audience-tab" data-tab="erwachsene">Erwachsene im Wandel</button>
+    </div>
+    <div class="audience-panel active" id="panel-jugend">
+      <div class="audience-panel-content">
+        <div class="audience-desc">
+          <h3>Schulwechsel, Lehre, Matura – welcher Weg passt?</h3>
+          <p>Für Eltern und Erziehungsberechtigte von Kindern und Jugendlichen <span style="white-space:nowrap">(10–20 Jahre)</span>, die vor einer wichtigen Bildungsentscheidung stehen oder merken, dass der aktuelle Weg nicht passt.</p>
+          <p>Auch Lehrer:innen, Bildungsberater:innen, Jugendcoaches und interessierte Jugendliche sind herzlich willkommen.</p>
+        </div>
+        <div class="audience-features">
+          <h4>Das bekommen Sie</h4>
+          <ul>
+            <li>Persönliches Orientierungsprofil Ihres Kindes</li>
+            <li>Konkrete Schul- und Lehrberufsempfehlungen in Österreich</li>
+            <li>Verständnis für den Lern- und Entscheidungstyp</li>
+            <li>1-stündiges persönliches Beratungsgespräch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="audience-panel" id="panel-erwachsene">
+      <div class="audience-panel-content">
+        <div class="audience-desc">
+          <h3>Beruflicher Wandel braucht klare Orientierung</h3>
+          <p>Für Angestellte, Selbstständige und Menschen in beruflicher Neuorientierung, die endlich Klarheit wollen – statt dem nächsten Kompromiss.</p>
+          <p>Ob Karrierewechsel, Wiedereinstieg oder der Wunsch nach mehr Erfüllung im Beruf: MY PLAN B zeigt, welche beruflichen Wege wirklich zu Ihnen passen.</p>
+        </div>
+        <div class="audience-features">
+          <h4>Das bekommen Sie</h4>
+          <ul>
+            <li>Umfassendes persönliches Potenzialanalyse-Dokument</li>
+            <li>Konkrete Berufsfeld- und Weiterbildungsempfehlungen</li>
+            <li>Verständnis für Ihre Arbeitsweise und Stärken</li>
+            <li>1-stündiges persönliches Beratungsgespräch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER MICH -->
+<section class="about" id="ueber-mich">
+  <div class="container reveal">
+    <div class="section-label">Über mich</div>
+    <h2 class="section-title">Martina Kreiner</h2>
+    <div class="about-content">
+      <div class="about-photo">
+        <img src="MKimage_neu.png" alt="Martina Kreiner" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="about-text">
+        <p>Ich bin ISO-zertifizierte systemische Coachin, psychosoziale Beraterin in Ausbildung unter Supervision und Entwicklerin von MY PLAN B. Seit über 15 Jahren begleite ich Jugendliche und Erwachsene bei Persönlichkeit und Orientierung, unter anderem in Workshops an über 100 Tiroler Schulen.</p>
+        <div class="about-credentials">
+          <span class="credential">ISO-zertifizierte systemische Coachin</span>
+          <span class="credential">Psychosoziale Beraterin i.A.</span>
+          <span class="credential">20+ Jahre Erfahrung</span>
+          <span class="credential">100+ Schulworkshops</span>
+          <span class="credential">Human Design</span>
+          <span class="credential">Innenarchitektin</span>
+          <span class="credential">Architektur für Innen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="container reveal">
+    <div class="contact-inner">
+      <div class="section-label">Bereit für den nächsten Schritt?</div>
+      <h2 class="section-title">Lassen Sie uns sprechen</h2>
+      <p class="contact-subtitle">Sie haben Fragen oder möchten eine Beratung buchen?<br>Ich freue mich auf Ihre Nachricht.</p>
+      <div class="contact-methods">
+        <a href="mailto:beratung@myplanb.at" class="contact-method">
+          <span class="cm-icon">✉</span>
+          <span>beratung@myplanb.at</span>
+        </a>
+        <a href="tel:+43699196111701" class="contact-method">
+          <span class="cm-icon">☎</span>
+          <span>+43 699 196 11701</span>
+        </a>
+      </div>
+      <a href="mailto:beratung@myplanb.at?subject=Anfrage%20MY%20PLAN%20B" class="contact-cta">
+        Jetzt Kontakt aufnehmen
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Logo_PlanB_ohneText_white_transparent.png" alt="MY PLAN B" class="footer-logo">
+  <p>Martina Kreiner &middot; beratung@myplanb.at &middot; +43 699 196 11701 &middot; myplanb.at</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <p style="margin-top:1rem; font-size:0.8rem; opacity:0.5;">&#169; 2026 MY PLAN B &ndash; Orientierung, die passt</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Audience tabs
+  document.querySelectorAll('.audience-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.audience-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.audience-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('nav ul li a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('nav ul').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

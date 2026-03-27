@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Schnuppertag-Check · MY PLAN B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #2a7d7b;
+    --teal-light: #328585;
+    --teal-dark: #1f5f5e;
+    --gold: #d4a843;
+    --gold-light: #e8c36a;
+    --fire: #e86e3a;
+    --ok: #d4a843;
+    --dead: #999;
+    --bg: #f5f0e8;
+    --bg-card: #ffffff;
+    --bg-section: #ede8dd;
+    --text: #2c2c2c;
+    --text-muted: #7a7568;
+    --border: rgba(42, 125, 123, 0.12);
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 16px; padding-bottom: 90px; -webkit-font-smoothing: antialiased; }
+
+  .header { text-align: center; padding: 20px 0 6px; }
+  .header .logo-text { font-family: 'DM Serif Display', serif; font-size: 0.85rem; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-family: 'DM Serif Display', serif; font-size: 1.65rem; color: var(--teal-dark); line-height: 1.2; }
+  .header .subtitle { color: var(--text-muted); font-size: 0.85rem; margin-top: 6px; font-weight: 500; }
+  .header .emoji-legend { display: flex; justify-content: center; gap: 16px; margin-top: 14px; font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+  .emoji-legend span { display: flex; align-items: center; gap: 4px; }
+
+  .company-bar { display: flex; gap: 8px; overflow-x: auto; padding: 14px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .company-bar::-webkit-scrollbar { display: none; }
+  .company-tab { flex-shrink: 0; padding: 10px 20px; border-radius: 28px; border: 2px solid var(--border); background: var(--bg-card); color: var(--text-muted); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.25s; white-space: nowrap; }
+  .company-tab.active { background: var(--teal); color: #fff; border-color: var(--teal); box-shadow: 0 4px 16px rgba(42, 125, 123, 0.25); }
+  .company-tab.ov-tab { border-color: var(--gold); color: var(--gold); }
+  .company-tab.ov-tab.active { background: var(--gold); color: #fff; border-color: var(--gold); box-shadow: 0 4px 16px rgba(212, 168, 67, 0.25); }
+
+  .beruf-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+  .beruf-tab { padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--gold); background: transparent; color: var(--gold); font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+  .beruf-tab.active { background: var(--gold); color: #fff; }
+
+  .section { margin-top: 22px; }
+  .section-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: var(--teal); margin-bottom: 10px; padding-left: 2px; }
+
+  .check-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); }
+  .check-item .emoji-rate { display: flex; gap: 6px; margin-left: auto; flex-shrink: 0; }
+  .rate-btn { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--bg-section); background: var(--bg); font-size: 1.1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent; }
+  .rate-btn:active { transform: scale(0.9); }
+  .rate-btn.sel-fire { background: #fde8db; border-color: var(--fire); box-shadow: 0 0 0 3px rgba(232,110,58,0.15); }
+  .rate-btn.sel-ok { background: #fdf3db; border-color: var(--ok); box-shadow: 0 0 0 3px rgba(212,168,67,0.15); }
+  .rate-btn.sel-dead { background: #ececec; border-color: var(--dead); box-shadow: 0 0 0 3px rgba(153,153,153,0.15); }
+  .item-text { font-size: 0.88rem; line-height: 1.35; flex: 1; font-weight: 500; }
+  .item-text .sub { display: block; font-size: 0.73rem; color: var(--text-muted); margin-top: 2px; font-weight: 400; font-style: italic; }
+
+  .gut-feeling { background: var(--bg-card); border: 2px solid var(--teal); border-radius: 16px; padding: 22px 18px; margin-top: 24px; text-align: center; box-shadow: var(--shadow); }
+  .gut-feeling h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--teal-dark); margin-bottom: 4px; }
+  .gut-feeling .gut-sub { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; }
+  .gut-options { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .gut-btn { padding: 10px 18px; border-radius: 28px; border: 2px solid var(--border); background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .gut-btn.selected { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+  .notes-area { width: 100%; background: var(--bg-card); border: 1.5px solid var(--border); border-radius: 14px; padding: 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.86rem; resize: vertical; min-height: 80px; outline: none; box-shadow: var(--shadow); }
+  .notes-area:focus { border-color: var(--teal); }
+  .notes-area::placeholder { color: var(--text-muted); }
+
+  .gold-divider { height: 3px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); border-radius: 2px; margin: 24px 0 8px; }
+
+  .summary-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(245,240,232,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--border); padding: 12px 20px; display: flex; justify-content: center; gap: 28px; font-size: 0.85rem; font-weight: 600; z-index: 100; }
+  .summary-item { display: flex; align-items: center; gap: 5px; }
+  .summary-count { font-size: 1.3rem; font-weight: 800; }
+  .fire-count { color: var(--fire); }
+  .ok-count { color: var(--ok); }
+  .dead-count { color: var(--dead); }
+
+  .action-btn { display: block; width: 100%; padding: 16px; border-radius: 14px; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-top: 12px; text-align: center; }
+  .action-btn:active { transform: scale(0.98); }
+  .btn-teal { background: var(--teal); color: #fff; }
+  .btn-gold { background: var(--gold); color: #fff; }
+
+  /* Day summary */
+  .day-sum { background: var(--bg-card); border: 2px solid var(--gold); border-radius: 16px; padding: 20px 18px; margin-top: 20px; box-shadow: var(--shadow); }
+  .day-sum h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--teal-dark); margin-bottom: 12px; text-align: center; }
+  .ds-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+  .ds-row:last-child { border-bottom: none; }
+  .ds-label { color: var(--text-muted); font-weight: 500; }
+  .ds-val { font-weight: 700; }
+
+  /* Overview */
+  .ov-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-bottom: 12px; box-shadow: var(--shadow); }
+  .ov-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .ov-title { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--teal-dark); }
+  .ov-beruf { font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: rgba(212,168,67,0.15); color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; }
+  .ov-scores { display: flex; gap: 14px; margin-bottom: 10px; font-weight: 700; font-size: 0.92rem; }
+  .ov-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .pill { font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: 10px; }
+  .pill-f { background: #fde8db; color: var(--fire); }
+  .pill-o { background: #fdf3db; color: #b8912a; }
+  .pill-d { background: #ececec; color: #666; }
+  .pill-e { background: var(--bg-section); color: var(--text-muted); }
+  .ov-gut { font-size: 0.85rem; font-weight: 600; padding: 8px 14px; border-radius: 12px; display: inline-block; margin-bottom: 8px; }
+  .g-ja { background: #dff5ee; color: #1a6b4a; }
+  .g-mb { background: #fdf3db; color: #8a6d1b; }
+  .g-no { background: #f5dfdf; color: #8a1b1b; }
+  .ov-notes { font-size: 0.82rem; color: var(--text-muted); font-style: italic; line-height: 1.45; padding: 10px 12px; background: var(--bg-section); border-radius: 10px; margin-top: 8px; }
+  .ov-empty { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+
+  .ov-rank { background: var(--bg-card); border: 2px solid var(--teal); border-radius: 16px; padding: 22px 18px; margin-bottom: 16px; box-shadow: var(--shadow); }
+  .ov-rank h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--teal-dark); text-align: center; margin-bottom: 16px; }
+  .rr { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .rr:last-child { border-bottom: none; }
+  .rp { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--teal); width: 32px; text-align: center; flex-shrink: 0; }
+  .rp.g1 { color: var(--gold); }
+  .ri { flex: 1; }
+  .rn { font-weight: 700; font-size: 0.9rem; }
+  .rb { font-size: 0.75rem; color: var(--text-muted); }
+  .rg { font-size: 0.75rem; margin-top: 2px; }
+  .rbw { width: 70px; flex-shrink: 0; }
+  .rbar { height: 8px; border-radius: 4px; background: var(--bg-section); overflow: hidden; }
+  .rfill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--teal), var(--teal-light)); transition: width 0.4s; }
+  .rscore { font-size: 0.72rem; font-weight: 700; color: var(--teal); text-align: right; margin-top: 2px; }
+
+  .footer-hint { text-align: center; font-size: 0.7rem; color: var(--text-muted); margin-top: 32px; line-height: 1.5; }
+  .footer-hint a { color: var(--teal); text-decoration: none; }
+
+  /* Finished view */
+  .done-badge { display: inline-block; background: #dff5ee; color: #1a6b4a; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 12px; margin-bottom: 12px; }
+  .result-header { text-align: center; margin-bottom: 20px; }
+  .result-header h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--teal-dark); margin-bottom: 4px; }
+  .result-header p { font-size: 0.85rem; color: var(--text-muted); }
+  .result-big { display: flex; justify-content: center; gap: 24px; margin: 20px 0; }
+  .result-big-item { text-align: center; }
+  .result-big-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+  .result-big-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
+  .result-section-card { background: var(--bg-card); border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; box-shadow: var(--shadow); display: flex; justify-content: space-between; align-items: center; }
+  .result-section-name { font-weight: 600; font-size: 0.88rem; }
+  .result-section-detail { font-size: 0.78rem; color: var(--text-muted); }
+  .result-section-emoji { font-size: 1.4rem; }
+  .result-gut-big { text-align: center; margin: 20px 0; padding: 18px; background: var(--bg-card); border-radius: 16px; box-shadow: var(--shadow); }
+  .result-gut-big .gut-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
+  .result-gut-big .gut-val { font-size: 1.3rem; font-weight: 700; }
+  .result-notes-box { background: var(--bg-section); border-radius: 14px; padding: 14px 16px; margin: 12px 0; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); font-style: italic; }
+  .email-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .btn-back { background: transparent; border: 2px solid var(--teal); color: var(--teal); }
+
+  /* Email config */
+  .email-setup { background: var(--bg-card); border: 1.5px solid var(--border); border-radius: 16px; padding: 18px; margin-top: 16px; box-shadow: var(--shadow); }
+  .email-setup h4 { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--teal-dark); margin-bottom: 12px; }
+  .email-field { margin-bottom: 10px; }
+  .email-field label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; }
+  .email-field input { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--bg); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: var(--text); outline: none; }
+  .email-field input:focus { border-color: var(--teal); }
+  .email-saved { font-size: 0.78rem; color: #1a6b4a; margin-top: 8px; display: none; }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-text">MY PLAN B</div>
+  <h1>Schnuppertag-Check</h1>
+  <p class="subtitle">Tap auf das Emoji – sei ehrlich, nicht höflich.</p>
+  <div class="emoji-legend">
+    <span>🔥 war cool</span>
+    <span>😐 okay</span>
+    <span>💀 leergesaugt</span>
+  </div>
+</div>
+
+<div class="company-bar" id="companyBar"></div>
+<div class="beruf-bar" id="berufBar"></div>
+<div id="content"></div>
+
+<div class="footer-hint">
+  MY PLAN B · Martina Kreiner · <a href="https://myplanb.at">myplanb.at</a><br>
+  Deine Antworten bleiben auf deinem Gerät.
+</div>
+
+<div class="summary-bar">
+  <div class="summary-item"><span class="summary-count fire-count" id="fc">0</span> 🔥</div>
+  <div class="summary-item"><span class="summary-count ok-count" id="oc">0</span> 😐</div>
+  <div class="summary-item"><span class="summary-count dead-count" id="dc">0</span> 💀</div>
+</div>
+
+<script>
+const D = {
+  companies: [
+    { name: "INNIO", berufe: ["Mechatronik", "Elektrotechnik", "Metallbau"] },
+    { name: "Binderholz", berufe: ["Mechatronik", "IT", "Metallbau"] },
+    { name: "Siemens", berufe: ["Mechatronik – Automatisierung"] },
+    { name: "ACP", berufe: ["IT-Systemtechnik"] },
+    { name: "IVB", berufe: ["Mechatronik"] }
+  ],
+  sections: [
+    { title: "🏢 Erster Eindruck", items: [
+      { t: "Die Leute waren freundlich", s: "Hast du dich willkommen gefühlt?" },
+      { t: "Mir wurde alles gut erklärt", s: "Haben sie sich Zeit genommen?" },
+      { t: "Die Atmosphäre war angenehm", s: "Stell dir vor, da jeden Tag hinzugehen" }
+    ]},
+    { title: "🔧 Die Arbeit", items: [
+      { t: "Die Aufgaben waren abwechslungsreich", s: "Nicht immer dasselbe" },
+      { t: "Ich durfte selber was ausprobieren", s: "Hands-on oder nur zuschauen?" },
+      { t: "Ich hab verstanden, WARUM man das macht", s: "Ergab das Sinn für dich?" },
+      { t: "Es gab einen Mix aus Denken + Machen", s: "Nicht nur stumpf ausführen" }
+    ]},
+    { title: "👥 Die Menschen", items: [
+      { t: "Jemand hat mich echt wahrgenommen", s: "Nicht nur 'der Schnupperling'" },
+      { t: "Das Team war persönlich genug", s: "Konntest du mit Leuten reden?" },
+      { t: "Ich könnte mir vorstellen, dazuzugehören", s: "Fair, kollegial, guter Vibe?" },
+      { t: "Da war jemand, von dem ich lernen will", s: "Ein Ausbilder, der dich inspiriert?" }
+    ]},
+    { title: "⚡ Energie-Check", items: [
+      { t: "Ich war danach nicht komplett am Ende", s: "Müde ist ok – tot nicht" },
+      { t: "Es gab Pausen und Abwechslung", s: "Nicht 8h am Stück durchackern" },
+      { t: "Die Arbeit hat mich neugierig gemacht", s: "Dachtest du: 'Das will ich können'?" },
+      { t: "Ich konnte in meinem Tempo arbeiten", s: "Kein unnötiger Stress?" }
+    ]},
+    { title: "🎯 Passt das zu mir?", items: [
+      { t: "Ich könnte hier wachsen", s: "Entwicklung statt Stillstand" },
+      { t: "Technik + Mitdenken waren dabei", s: "Nicht nur Fließband" },
+      { t: "Ich sehe mich hier in 1 Jahr", s: "Ganz ehrlich – ja oder nein?" }
+    ]}
+  ]
+};
+
+const TI = D.sections.reduce((a,s) => a + s.items.length, 0);
+const GM = { ja:'🔥 Ja, passt!', maybe:'😐 Vielleicht', nein:'💀 Eher nicht' };
+let state={}, cc=0, cb=0, ov=false;
+let emails = { me: '', mom: '' };
+
+function load() { try { const s=localStorage.getItem('sc3'); if(s) state=JSON.parse(s); } catch(e){} }
+function save() { try { localStorage.setItem('sc3', JSON.stringify(state)); } catch(e){} }
+function loadEmails() { try { const e=localStorage.getItem('sc3emails'); if(e) emails=JSON.parse(e); } catch(e){} }
+function saveEmails() { try { localStorage.setItem('sc3emails', JSON.stringify(emails)); } catch(e){} }
+function sk() { const c=D.companies[cc]; return c.name+'--'+c.berufe[cb]; }
+
+function stats(k) {
+  const s=state[k]||{}; let f=0,o=0,d=0,t=0;
+  Object.entries(s).forEach(([x,v])=>{ if(x==='gut'||x==='notes'||x==='_done') return; t++; if(v==='fire')f++; if(v==='ok')o++; if(v==='dead')d++; });
+  return {f,o,d,t, gut:s.gut||null, notes:s.notes||''};
+}
+
+function secStats(k,si) {
+  const s=state[k]||{}, sec=D.sections[si]; let f=0,o=0,d=0,t=0;
+  sec.items.forEach((_,ii)=>{ const v=s[si+'-'+ii]; if(v){t++; if(v==='fire')f++; if(v==='ok')o++; if(v==='dead')d++;} });
+  return {f,o,d,t};
+}
+
+function init() { load(); loadEmails(); rTabs(); rBerufe(); rContent(); }
+
+function rTabs() {
+  let h = D.companies.map((c,i) => {
+    // Check if any beruf for this company is done
+    const anyDone = c.berufe.some(b => (state[c.name+'--'+b]||{})._done);
+    const label = anyDone ? '✅ '+c.name : c.name;
+    return `<div class="company-tab ${i===cc&&!ov?'active':''}" onclick="goC(${i})">${label}</div>`;
+  }).join('');
+  h += `<div class="company-tab ov-tab ${ov?'active':''}" onclick="goOv()">📊 Überblick</div>`;
+  document.getElementById('companyBar').innerHTML = h;
+}
+
+function rBerufe() {
+  const bar = document.getElementById('berufBar');
+  if (ov) { bar.innerHTML=''; return; }
+  const c = D.companies[cc];
+  if (c.berufe.length===1) { bar.innerHTML=`<span class="beruf-tab active">${c.berufe[0]}</span>`; return; }
+  bar.innerHTML = c.berufe.map((b,i)=>`<span class="beruf-tab ${i===cb?'active':''}" onclick="goB(${i})">${b}</span>`).join('');
+}
+
+function goC(i) { cc=i; cb=0; ov=false; rTabs(); rBerufe(); rContent(); }
+function goB(i) { cb=i; rBerufe(); rContent(); }
+function goOv() { ov=true; rTabs(); rBerufe(); rOverview(); }
+
+function rContent() {
+  const k=sk(); if(!state[k]) state[k]={};
+  const s=state[k], co=D.companies[cc], b=co.berufe[cb];
+
+  // If day is marked done, show result view
+  if(s._done) { rResult(); return; }
+
+  let h='';
+
+  D.sections.forEach((sec,si) => {
+    h+=`<div class="section"><div class="section-title">${sec.title}</div>`;
+    sec.items.forEach((it,ii) => {
+      const key=si+'-'+ii, v=s[key]||null;
+      h+=`<div class="check-item"><div class="item-text">${it.t}<span class="sub">${it.s}</span></div>
+        <div class="emoji-rate">
+          <button class="rate-btn ${v==='fire'?'sel-fire':''}" onclick="rate('${key}','fire')">🔥</button>
+          <button class="rate-btn ${v==='ok'?'sel-ok':''}" onclick="rate('${key}','ok')">😐</button>
+          <button class="rate-btn ${v==='dead'?'sel-dead':''}" onclick="rate('${key}','dead')">💀</button>
+        </div></div>`;
+    });
+    h+=`</div>`;
+  });
+
+  const gv=s.gut||null;
+  h+=`<div class="gut-feeling"><h3>Bauchgefühl</h3>
+    <p class="gut-sub">${b} bei ${co.name} – nicht nachdenken, was sagt dein Gefühl?</p>
+    <div class="gut-options">
+      <button class="gut-btn ${gv==='ja'?'selected':''}" onclick="setGut('ja')">🔥 Ja, passt!</button>
+      <button class="gut-btn ${gv==='maybe'?'selected':''}" onclick="setGut('maybe')">😐 Vielleicht</button>
+      <button class="gut-btn ${gv==='nein'?'selected':''}" onclick="setGut('nein')">💀 Eher nicht</button>
+    </div></div>`;
+
+  h+=`<div class="gold-divider"></div>`;
+  const nv=s.notes||'';
+  h+=`<div class="section" style="margin-top:16px;"><div class="section-title">📝 Notizen</div>
+    <textarea class="notes-area" placeholder="Was ist dir aufgefallen? Was willst du nicht vergessen?"
+    oninput="saveN(this.value)">${nv}</textarea></div>`;
+
+  // Finish button – show when at least half is filled + gut feeling set
+  const st=stats(k);
+  const minRequired = Math.ceil(TI * 0.5);
+  if(st.t >= minRequired && st.gut) {
+    h+=`<button class="action-btn btn-gold" onclick="finishDay()" style="margin-top:24px;font-size:1.1rem;padding:18px;">✅ Tag abschließen – Ergebnis anzeigen</button>`;
+  } else if(st.t > 0) {
+    const missing = [];
+    if(st.t < minRequired) missing.push(`noch ${minRequired - st.t} Fragen bewerten`);
+    if(!st.gut) missing.push('Bauchgefühl auswählen');
+    h+=`<div style="text-align:center;margin-top:20px;padding:14px;background:var(--bg-section);border-radius:12px;font-size:0.82rem;color:var(--text-muted);">
+      Um den Tag abzuschließen: ${missing.join(' und ')}</div>`;
+  }
+
+  document.getElementById('content').innerHTML=h;
+  document.getElementById('fc').textContent=st.f;
+  document.getElementById('oc').textContent=st.o;
+  document.getElementById('dc').textContent=st.d;
+}
+
+function finishDay() {
+  const k=sk();
+  if(!state[k]) state[k]={};
+  state[k]._done = true;
+  save();
+  rContent();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function reopenDay() {
+  const k=sk();
+  if(state[k]) delete state[k]._done;
+  save();
+  rContent();
+}
+
+function rResult() {
+  const k=sk(), s=state[k]||{}, co=D.companies[cc], b=co.berufe[cb], st=stats(k);
+  let h='';
+
+  h+=`<div class="result-header">
+    <span class="done-badge">✅ Abgeschlossen</span>
+    <h2>${co.name}</h2>
+    <p>${b}</p>
+  </div>`;
+
+  // Big numbers
+  h+=`<div class="result-big">
+    <div class="result-big-item"><div class="result-big-num" style="color:var(--fire)">${st.f}</div><div class="result-big-label">🔥 Cool</div></div>
+    <div class="result-big-item"><div class="result-big-num" style="color:var(--ok)">${st.o}</div><div class="result-big-label">😐 Okay</div></div>
+    <div class="result-big-item"><div class="result-big-num" style="color:var(--dead)">${st.d}</div><div class="result-big-label">💀 Leer</div></div>
+  </div>`;
+
+  // Per section results
+  h+=`<div class="section"><div class="section-title">Ergebnis pro Bereich</div>`;
+  D.sections.forEach((sec,si) => {
+    const ss=secStats(k,si);
+    let emoji='–', detail='Nicht bewertet';
+    if(ss.t>0) {
+      const m=Math.max(ss.f,ss.o,ss.d);
+      emoji = m===ss.f ? '🔥' : m===ss.d ? '💀' : '😐';
+      detail = `${ss.f}× 🔥  ${ss.o}× 😐  ${ss.d}× 💀`;
+    }
+    h+=`<div class="result-section-card">
+      <div><div class="result-section-name">${sec.title}</div><div class="result-section-detail">${detail}</div></div>
+      <div class="result-section-emoji">${emoji}</div>
+    </div>`;
+  });
+  h+=`</div>`;
+
+  // Gut feeling big
+  if(st.gut) {
+    const gutEmoji = st.gut==='ja' ? '🔥' : st.gut==='maybe' ? '😐' : '💀';
+    h+=`<div class="result-gut-big">
+      <div class="gut-label">Dein Bauchgefühl</div>
+      <div class="gut-val">${gutEmoji} ${GM[st.gut]}</div>
+    </div>`;
+  }
+
+  // Notes
+  if(st.notes.trim()) {
+    h+=`<div class="result-notes-box">📝 ${st.notes}</div>`;
+  }
+
+  // Detail: all items with their ratings
+  h+=`<div class="gold-divider"></div>`;
+  h+=`<div class="section"><div class="section-title">Alle Bewertungen im Detail</div>`;
+  D.sections.forEach((sec,si) => {
+    sec.items.forEach((it,ii) => {
+      const v = s[si+'-'+ii];
+      const emoji = v==='fire' ? '🔥' : v==='ok' ? '😐' : v==='dead' ? '💀' : '⬜';
+      h+=`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.85rem;">
+        <span style="font-size:1.2rem;flex-shrink:0">${emoji}</span>
+        <span>${it.t}</span>
+      </div>`;
+    });
+  });
+  h+=`</div>`;
+
+  // Email setup + buttons
+  h+=`<div class="email-setup">
+    <h4>✉️ Ergebnis per E-Mail senden</h4>
+    <div class="email-field">
+      <label>Deine E-Mail</label>
+      <input type="email" id="emailMe" placeholder="deine@email.at" value="${emails.me}" onchange="saveEmail('me',this.value)">
+    </div>
+    <div class="email-field">
+      <label>E-Mail Mama</label>
+      <input type="email" id="emailMom" placeholder="mama@email.at" value="${emails.mom}" onchange="saveEmail('mom',this.value)">
+    </div>
+    <div class="email-saved" id="emailSaved">✅ Gespeichert – wird beim nächsten Mal automatisch ausgefüllt</div>
+  </div>`;
+
+  h+=`<div class="email-buttons">
+    <button class="action-btn btn-teal" onclick="emailDay()">✉️ An mich senden</button>
+    <button class="action-btn btn-gold" onclick="emailMom()">✉️ An Mama senden</button>
+    <button class="action-btn btn-back" onclick="reopenDay()">✏️ Nochmal bearbeiten</button>
+  </div>`;
+
+  document.getElementById('content').innerHTML=h;
+  document.getElementById('fc').textContent=st.f;
+  document.getElementById('oc').textContent=st.o;
+  document.getElementById('dc').textContent=st.d;
+}
+
+function rOverview() {
+  let h='';
+  const all=[];
+  D.companies.forEach(c=>c.berufe.forEach(b=>{
+    const k=c.name+'--'+b, st=stats(k);
+    all.push({co:c.name,b,k,...st});
+  }));
+  const filled=all.filter(e=>e.t>0);
+
+  if(!filled.length) {
+    h+=`<div class="ov-empty"><p style="font-size:1.5rem;margin-bottom:8px">🤷</p><p>Noch keine Bewertungen.<br>Füll zuerst die Schnuppertage aus!</p></div>`;
+    document.getElementById('content').innerHTML=h;
+    document.getElementById('fc').textContent=0; document.getElementById('oc').textContent=0; document.getElementById('dc').textContent=0;
+    return;
+  }
+
+  const ranked=[...filled].sort((a,b)=>(b.f*2+b.o)/(b.t||1)-(a.f*2+a.o)/(a.t||1));
+
+  h+=`<div class="ov-rank"><h3>🏆 Dein Ranking</h3>`;
+  ranked.forEach((e,i)=>{
+    const pct=Math.round((e.f/TI)*100);
+    h+=`<div class="rr"><div class="rp ${i===0?'g1':''}">${i+1}</div>
+      <div class="ri"><div class="rn">${e.co}</div><div class="rb">${e.b}</div>
+      ${e.gut?`<div class="rg">${GM[e.gut]}</div>`:''}</div>
+      <div class="rbw"><div class="rbar"><div class="rfill" style="width:${pct}%"></div></div><div class="rscore">${e.f}× 🔥</div></div></div>`;
+  });
+  h+=`</div>`;
+
+  h+=`<div class="gold-divider"></div><div class="section-title" style="margin-top:16px">DETAIL PRO SCHNUPPERTAG</div>`;
+
+  all.forEach(e=>{
+    h+=`<div class="ov-card"><div class="ov-head"><div class="ov-title">${e.co}</div><div class="ov-beruf">${e.b}</div></div>`;
+    if(!e.t) { h+=`<div style="color:var(--text-muted);font-size:0.84rem;font-style:italic">Noch nicht ausgefüllt</div>`; }
+    else {
+      h+=`<div class="ov-scores"><span style="color:var(--fire)">${e.f}</span> 🔥 &nbsp;<span style="color:var(--ok)">${e.o}</span> 😐 &nbsp;<span style="color:var(--dead)">${e.d}</span> 💀</div>`;
+      h+=`<div class="ov-pills">`;
+      D.sections.forEach((sec,si)=>{
+        const ss=secStats(e.k,si);
+        if(!ss.t){h+=`<span class="pill pill-e">${sec.title.split(' ')[0]} –</span>`;return;}
+        const m=Math.max(ss.f,ss.o,ss.d);
+        let c='pill-o',em='😐'; if(m===ss.f){c='pill-f';em='🔥';}else if(m===ss.d){c='pill-d';em='💀';}
+        h+=`<span class="pill ${c}">${sec.title.split(' ')[0]} ${em}</span>`;
+      });
+      h+=`</div>`;
+      if(e.gut){const gc=e.gut==='ja'?'g-ja':e.gut==='maybe'?'g-mb':'g-no'; h+=`<div class="ov-gut ${gc}">Bauchgefühl: ${GM[e.gut]}</div>`;}
+      if(e.notes.trim()) h+=`<div class="ov-notes">${e.notes}</div>`;
+    }
+    h+=`</div>`;
+  });
+
+  h+=`<div class="email-setup" style="margin-top:16px;">
+    <h4>✉️ E-Mail Adressen</h4>
+    <div class="email-field">
+      <label>Deine E-Mail</label>
+      <input type="email" placeholder="deine@email.at" value="${emails.me}" onchange="saveEmail('me',this.value)">
+    </div>
+    <div class="email-field">
+      <label>E-Mail Mama</label>
+      <input type="email" placeholder="mama@email.at" value="${emails.mom}" onchange="saveEmail('mom',this.value)">
+    </div>
+  </div>`;
+  h+=`<div class="email-buttons">
+    <button class="action-btn btn-gold" onclick="emailAll()">✉️ Gesamtübersicht an Mama senden</button>
+    <button class="action-btn btn-teal" onclick="emailAllMe()">✉️ Gesamtübersicht an mich senden</button>
+  </div>`;
+
+  document.getElementById('content').innerHTML=h;
+  let tf=0,to=0,td=0; filled.forEach(e=>{tf+=e.f;to+=e.o;td+=e.d;});
+  document.getElementById('fc').textContent=tf; document.getElementById('oc').textContent=to; document.getElementById('dc').textContent=td;
+}
+
+function rate(key,val) { const k=sk(); if(!state[k])state[k]={}; state[k][key]=state[k][key]===val?undefined:val; if(!state[k][key])delete state[k][key]; save(); rContent(); }
+function setGut(val) { const k=sk(); if(!state[k])state[k]={}; state[k].gut=state[k].gut===val?null:val; save(); rContent(); }
+function saveN(val) { const k=sk(); if(!state[k])state[k]={}; state[k].notes=val; save(); }
+
+// ─── EMAIL ───
+function dayText(co,b,k) {
+  const st=stats(k), s=state[k]||{};
+  let t=`SCHNUPPERTAG: ${co} - ${b}\n${'='.repeat(35)}\n\n`;
+  t+=`Cool: ${st.f} von ${TI}\nOkay: ${st.o} von ${TI}\nLeergesaugt: ${st.d} von ${TI}\n\n`;
+  D.sections.forEach((sec,si)=>{
+    t+=`${sec.title}\n`;
+    sec.items.forEach((it,ii)=>{
+      const v=s[si+'-'+ii]; const em=v==='fire'?'[cool]':v==='ok'?'[okay]':v==='dead'?'[leer]':'[ ]';
+      t+=`  ${em} ${it.t}\n`;
+    });
+    t+='\n';
+  });
+  if(st.gut) t+=`Bauchgefuehl: ${GM[st.gut]}\n\n`;
+  if(st.notes.trim()) t+=`Notizen: ${st.notes}\n\n`;
+  return t;
+}
+
+function saveEmail(who, val) {
+  emails[who] = val.trim();
+  saveEmails();
+  const hint = document.getElementById('emailSaved');
+  if(hint) { hint.style.display='block'; setTimeout(()=>{ hint.style.display='none'; }, 2000); }
+}
+
+function emailDay() {
+  const c=D.companies[cc], b=c.berufe[cb], k=sk();
+  const to = emails.me || '';
+  const subj=`Schnuppertag: ${c.name} - ${b}`;
+  const body=dayText(c.name,b,k);
+  window.location.href='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+}
+
+function emailMom() {
+  const c=D.companies[cc], b=c.berufe[cb], k=sk();
+  const to = emails.mom || '';
+  let body=`Hallo!\n\nHier ist das Ergebnis vom Schnuppertag:\n\n`;
+  body+=dayText(c.name,b,k);
+  body+=`\nErstellt mit MY PLAN B Schnuppertag-Check\nmyplanb.at`;
+  const subj=`Schnuppertag-Ergebnis: ${c.name} (${b})`;
+  window.location.href='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+}
+
+function emailAll() {
+  const to = emails.mom || '';
+  let body=`SCHNUPPERTAG-CHECK - GESAMTUEBERSICHT\n${'='.repeat(35)}\n\n`;
+  const entries=[];
+  D.companies.forEach(c=>c.berufe.forEach(b=>{
+    const k=c.name+'--'+b, st=stats(k);
+    if(st.t>0) entries.push({co:c.name,b,k,...st});
+  }));
+  const ranked=[...entries].sort((a,b)=>(b.f*2+b.o)/(b.t||1)-(a.f*2+a.o)/(a.t||1));
+
+  body+=`RANKING\n`;
+  ranked.forEach((e,i)=>{
+    const gut=e.gut?' -> '+GM[e.gut]:'';
+    body+=`${i+1}. ${e.co} - ${e.b} (${e.f}x cool, ${e.o}x okay, ${e.d}x leer)${gut}\n`;
+  });
+  body+=`\n${'─'.repeat(35)}\n\n`;
+  ranked.forEach(e=>{ body+=dayText(e.co,e.b,e.k)+`${'─'.repeat(35)}\n\n`; });
+  body+=`Erstellt mit MY PLAN B Schnuppertag-Check\nmyplanb.at`;
+
+  window.location.href='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent('Schnuppertag-Check - Gesamtuebersicht')+'&body='+encodeURIComponent(body);
+}
+
+function emailAllMe() {
+  const to = emails.me || '';
+  let body=`SCHNUPPERTAG-CHECK - GESAMTUEBERSICHT\n${'='.repeat(35)}\n\n`;
+  const entries=[];
+  D.companies.forEach(c=>c.berufe.forEach(b=>{
+    const k=c.name+'--'+b, st=stats(k);
+    if(st.t>0) entries.push({co:c.name,b,k,...st});
+  }));
+  const ranked=[...entries].sort((a,b)=>(b.f*2+b.o)/(b.t||1)-(a.f*2+a.o)/(a.t||1));
+
+  body+=`RANKING\n`;
+  ranked.forEach((e,i)=>{
+    const gut=e.gut?' -> '+GM[e.gut]:'';
+    body+=`${i+1}. ${e.co} - ${e.b} (${e.f}x cool, ${e.o}x okay, ${e.d}x leer)${gut}\n`;
+  });
+  body+=`\n${'─'.repeat(35)}\n\n`;
+  ranked.forEach(e=>{ body+=dayText(e.co,e.b,e.k)+`${'─'.repeat(35)}\n\n`; });
+  body+=`Erstellt mit MY PLAN B Schnuppertag-Check\nmyplanb.at`;
+
+  window.location.href='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent('Schnuppertag-Check - Gesamtuebersicht')+'&body='+encodeURIComponent(body);
+}
+
+init();
+</script>
+</body>
+</html>

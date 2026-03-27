@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilotprojekt – MY PLAN B</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #155A66; }
+    .page { max-width: 680px; margin: 0 auto; }
+    .nav { background: #155A66; padding: 14px 28px; display: flex; align-items: center; justify-content: flex-end; }
+    .nav a { color: #A8D4DC; font-size: 13px; text-decoration: none; }
+    .logo-area { display: none; }
+    .hero { background: #1B6E7C; padding: 32px 28px 44px; text-align: center; }
+    .hero-badge { display: inline-block; background: #FFBD59; color: #155A66; font-size: 12px; font-weight: bold; letter-spacing: 1.5px; padding: 6px 18px; border-radius: 20px; margin-bottom: 24px; }
+    .hero h1 { font-family: Georgia, serif; font-size: 30px; color: white; line-height: 1.3; margin-bottom: 14px; }
+    .hero h1 span { color: #FFBD59; }
+    .hero p { font-size: 16px; color: #E4F0F2; line-height: 1.7; max-width: 480px; margin: 0 auto 24px; }
+    .price-line { display: inline-flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.1); border-radius: 30px; padding: 10px 24px; flex-wrap: wrap; justify-content: center; }
+    .price-line .old { font-size: 14px; color: #A8D4DC; text-decoration: line-through; }
+    .price-line .new { font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #FFBD59; }
+    .price-line .label { font-size: 13px; color: #E4F0F2; }
+    .content { padding: 36px 28px; background: #FDF8F3; }
+    .what-box { background: white; border-left: 4px solid #FFBD59; border-radius: 0 10px 10px 0; padding: 22px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .what-box h2 { font-family: Georgia, serif; font-size: 18px; color: #155A66; margin-bottom: 16px; }
+    .what-item { display: flex; gap: 12px; margin-bottom: 13px; align-items: flex-start; }
+    .what-dot { width: 22px; height: 22px; min-width: 22px; background: #FFBD59; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .what-dot span { color: #155A66; font-weight: bold; font-size: 11px; }
+    .what-item p { font-size: 15px; color: #2D2D2D; line-height: 1.5; }
+    .form-box { background: #FDF8F3; border-radius: 12px; padding: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .form-box h2 { font-family: Georgia, serif; font-size: 20px; color: #155A66; margin-bottom: 6px; }
+    .form-box .sub { font-size: 14px; color: #6B6B6B; margin-bottom: 22px; line-height: 1.5; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-size: 12px; font-weight: bold; color: #155A66; margin-bottom: 5px; letter-spacing: 0.5px; }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #A8D4DC;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: #E4F0F2 !important;
+      color: #2D2D2D !important;
+      color-scheme: light;
+      -webkit-text-fill-color: #2D2D2D;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder { color: #7CADB8 !important; opacity: 1; }
+    .form-group input:focus { border-color: #1B6E7C; background-color: #D0E8EE !important; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .submit-btn { width: 100%; background: #FFBD59; color: #155A66; border: none; padding: 15px; border-radius: 30px; font-family: Georgia, serif; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: background 0.2s; }
+    .submit-btn:hover { background: #F0A800; }
+    .note { font-size: 12px; color: #6B6B6B; text-align: center; margin-top: 12px; line-height: 1.6; }
+    .success { display: none; background: #E4F0F2; border-left: 4px solid #1B6E7C; border-radius: 0 12px 12px 0; padding: 28px; text-align: center; }
+    .success h3 { font-family: Georgia, serif; font-size: 20px; color: #155A66; margin-bottom: 10px; }
+    .success p { font-size: 14px; color: #2D2D2D; line-height: 1.7; }
+    .footer { background: #155A66; padding: 24px 28px; text-align: center; }
+    .footer p { font-family: Georgia, serif; font-size: 14px; color: white; margin-bottom: 6px; }
+    .footer small { font-size: 12px; color: #A8D4DC; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="nav">
+    <a href="https://myplanb.at">← Zur Hauptseite</a>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">PILOTPROJEKT · LIMITIERT</div>
+    <h1>Ihr persönliches Orientierungsprofil –<br><span>zum Pilotpreis</span></h1>
+    <p>Exklusiv für Teilnehmende des Vortrags. Sichern Sie sich jetzt einen der limitierten Pilotplätze.</p>
+    <div class="price-line">
+      <span class="old">€ 149</span>
+      <span class="new">€ 79</span>
+      <span class="label">inkl. persönlichem Beratungsgespräch</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="what-box">
+      <h2>Was Sie bekommen</h2>
+      <div class="what-item">
+        <div class="what-dot"><span>1</span></div>
+        <p>Persönliches Orientierungsprofil (15–20 Seiten) – wer Ihr Kind ist, wie es lernt und entscheidet</p>
+      </div>
+      <div class="what-item">
+        <div class="what-dot"><span>2</span></div>
+        <p>Konkrete Empfehlungen für Schulen, Lehrberufe oder Studienrichtungen in Österreich</p>
+      </div>
+      <div class="what-item">
+        <div class="what-dot"><span>3</span></div>
+        <p>50 Minuten persönliches Beratungsgespräch mit Martina Kreiner</p>
+      </div>
+      <div class="what-item">
+        <div class="what-dot"><span>4</span></div>
+        <p>Möglichkeit, Ihr Profil anonymisiert als Praxisbeispiel zur Verfügung zu stellen</p>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h2>Jetzt Interesse bekunden</h2>
+      <p class="sub">Kein Fragebogen – nur Ihre Kontaktdaten. Martina meldet sich persönlich bei Ihnen.</p>
+      <form action="https://formspree.io/f/xdawzrlv" method="POST">
+        <div class="form-group">
+          <label>VORNAME *</label>
+          <input type="text" name="Vorname" required placeholder="Ihr Vorname" />
+        </div>
+        <div class="form-group">
+          <label>NACHNAME *</label>
+          <input type="text" name="Nachname" required placeholder="Ihr Nachname" />
+        </div>
+        <div class="form-group">
+          <label>E-MAIL *</label>
+          <input type="email" name="E-Mail" required placeholder="ihre@email.at" />
+        </div>
+        <div class="form-group">
+          <label>TELEFON (optional)</label>
+          <input type="tel" name="Telefon" placeholder="+43 ..." />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ALTER DES KINDES</label>
+            <input type="number" name="Alter Kind" min="8" max="20" placeholder="z.B. 14" />
+          </div>
+          <div class="form-group">
+            <label>SCHULE / STUFE</label>
+            <input type="text" name="Schule Stufe" placeholder="z.B. NMS, 3. Klasse" />
+          </div>
+        </div>
+        <button class="submit-btn" type="submit">Ich bin dabei →</button>
+        <p class="note">Keine Verpflichtung. Martina meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.<br>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>MY PLAN B – Orientierung, die passt.</p>
+    <small>Martina Kreiner · martina@myplanb.at · +43 699 196 11701 · myplanb.at</small>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kostenloser Vortrag – MY PLAN B | 24. April 2026</title>
+<meta name="description" content="Kostenloser Vortrag: Schulwechsel, Lehre, Matura – Welcher Weg passt? 24. April 2026, Plankenhof Pill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --petrol: #1B6E7C;
+    --petrol-dark: #155A66;
+    --amber: #FFBD59;
+    --peach: #E89F7B;
+    --bg: #F7F5F2;
+    --petrol-light: #E4F0F2;
+    --cream: #FDF8F3;
+    --dark: #2D2D2D;
+    --gray: #6B6B6B;
+    --white: #FFFFFF;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--dark); background: var(--bg);
+    line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--petrol); padding: 0 2rem; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(21,90,102,0.3);
+  }
+  nav .nav-logo { height: 42px; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul li a {
+    color: var(--white); text-decoration: none; font-size: 0.9rem;
+    font-weight: 500; letter-spacing: 0.03em; opacity: 0.85; transition: opacity 0.25s;
+  }
+  nav ul li a:hover { opacity: 1; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; }
+
+  /* HERO */
+  .hero {
+    min-height: 85vh; display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: linear-gradient(165deg, var(--petrol) 0%, var(--petrol-dark) 55%, #0f4a54 100%);
+    padding: 8rem 2rem 5rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -40%; right: -20%; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255,189,89,0.08) 0%, transparent 70%); border-radius: 50%;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -30%; left: -15%; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,159,123,0.06) 0%, transparent 70%); border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .hero-logo { width: 585px; margin-bottom: 1.8rem; animation: fadeDown 1s ease-out; }
+  .hero-badge {
+    display: inline-block; background: var(--amber); color: var(--petrol-dark);
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.5rem 1.4rem; border-radius: 50px; margin-bottom: 1.8rem;
+    animation: fadeDown 1s ease-out 0.1s both;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif; color: var(--white);
+    font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 700;
+    line-height: 1.25; margin-bottom: 2rem; animation: fadeUp 1s ease-out 0.2s both;
+  }
+  .hero h1 .highlight { color: var(--amber); }
+  .hero p {
+    color: rgba(255,255,255,0.85); font-size: 1.15rem; max-width: 560px;
+    margin: 0 auto 2rem; animation: fadeUp 1s ease-out 0.4s both;
+  }
+  .hero-meta {
+    display: flex; justify-content: center; gap: 2rem; margin-bottom: 2.5rem;
+    flex-wrap: wrap; animation: fadeUp 1s ease-out 0.5s both;
+  }
+  .hero-meta-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+  .hero-meta-item strong { color: var(--white); }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--amber); color: var(--petrol-dark);
+    padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem;
+    text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeUp 1s ease-out 0.6s both; box-shadow: 0 4px 25px rgba(255,189,89,0.3);
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(255,189,89,0.45); }
+  .hero-kostenlos {
+    display: block; color: rgba(255,255,255,0.6); font-size: 0.85rem;
+    margin-top: 0.8rem; animation: fadeUp 1s ease-out 0.7s both;
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--petrol); margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Lora', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    color: var(--petrol-dark); line-height: 1.3; margin-bottom: 1.5rem;
+  }
+
+  /* PAIN */
+  .pain { background: var(--cream); }
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2.5rem 0; }
+  .pain-card {
+    background: var(--white); border-radius: 14px; padding: 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    border: 1px solid rgba(27,110,124,0.08); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pain-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(27,110,124,0.08); }
+  .pain-icon {
+    flex-shrink: 0; width: 44px; height: 44px; background: var(--petrol-light);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  }
+  .pain-card h3 { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--petrol-dark); margin-bottom: 0.3rem; }
+  .pain-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.5; }
+  .pain-bridge {
+    background: var(--peach); border-radius: 14px; padding: 2rem 2.5rem;
+    margin-top: 2rem; text-align: center;
+  }
+  .pain-bridge p { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--petrol-dark); font-weight: 600; }
+  .pain-bridge p span {
+    display: block; font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400; font-size: 1.05rem; margin-top: 0.6rem; color: var(--dark);
+  }
+
+  /* ERFAHREN */
+  .erfahren { background: var(--bg); }
+  .erfahren-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 0.9rem 0; padding-left: 2.2rem; position: relative;
+    font-size: 1.02rem; border-bottom: 1px solid rgba(27,110,124,0.1); line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--petrol); font-weight: 700; font-size: 1.1rem; }
+  .herzstuck-box {
+    background: var(--petrol); border-radius: 20px; padding: 2.5rem;
+    color: var(--white); position: relative; overflow: hidden; margin-top: -10rem;
+  }
+  .herzstuck-box::before {
+    content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,189,89,0.15) 0%, transparent 70%); border-radius: 50%;
+  }
+  .herzstuck-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 1rem; position: relative;
+  }
+  .herzstuck-box h3 {
+    font-family: 'Lora', serif; font-size: 1.4rem; margin-bottom: 1.2rem;
+    position: relative; line-height: 1.3;
+  }
+  .herzstuck-box p { font-size: 1rem; opacity: 0.9; line-height: 1.7; position: relative; }
+  .herzstuck-box .mitnehmen {
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);
+    font-family: 'Lora', serif; font-style: italic; font-size: 1.05rem; opacity: 0.95; position: relative;
+  }
+
+  /* TERMIN */
+  .termin-section { background: var(--petrol-light); }
+  .termin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .termin-box { background: var(--petrol); border-radius: 20px; padding: 2.5rem; color: var(--white); }
+  .termin-box h3 { font-family: 'Lora', serif; font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--amber); }
+  .termin-row { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.1rem; }
+  .termin-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .termin-row p { font-size: 1rem; line-height: 1.5; opacity: 0.9; }
+  .termin-row p strong { color: var(--white); }
+  .termin-kostenlos {
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 1.05rem; font-weight: 700; color: var(--amber);
+  }
+  .fuer-wen-box { background: var(--white); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(27,110,124,0.1); }
+  .fuer-wen-box h3 { font-family: 'Lora', serif; font-size: 1.3rem; color: var(--petrol-dark); margin-bottom: 1.5rem; }
+  .fuer-wen-box ul { list-style: none; }
+  .fuer-wen-box ul li {
+    padding: 0.5rem 0; padding-left: 1.5rem; position: relative;
+    font-size: 0.98rem; border-bottom: 1px solid rgba(27,110,124,0.07);
+  }
+  .fuer-wen-box ul li:last-child { border-bottom: none; }
+  .fuer-wen-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--petrol); font-weight: 700; }
+
+  /* TESTIMONIAL */
+  .testimonial { background: var(--petrol); color: var(--white); text-align: center; padding: 5rem 2rem; }
+  .testimonial-inner { max-width: 750px; margin: 0 auto; }
+  .testimonial-quote { font-size: 2.5rem; color: var(--amber); font-family: 'Lora', serif; line-height: 1; margin-bottom: 1rem; }
+  .testimonial blockquote {
+    font-family: 'Lora', serif; font-size: 1.2rem; font-style: italic;
+    line-height: 1.7; opacity: 0.95; margin-bottom: 1.5rem;
+  }
+  .testimonial cite { font-style: normal; font-size: 0.95rem; opacity: 0.7; }
+
+  /* ANMELDUNG */
+  .anmeldung { background: var(--cream); }
+  .anmeldung-inner { max-width: 680px; margin: 0 auto; }
+  .form-subtitle { text-align: center; font-size: 1.05rem; color: var(--gray); margin-bottom: 2.5rem; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.88rem; font-weight: 600; color: var(--petrol-dark); letter-spacing: 0.03em; }
+  .form-group input, .form-group textarea {
+    padding: 0.85rem 1.1rem; border: 1.5px solid rgba(27,110,124,0.2); border-radius: 10px;
+    font-family: 'Source Sans 3', sans-serif; font-size: 1rem; color: var(--dark);
+    background: var(--white); transition: border-color 0.25s, box-shadow 0.25s; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--petrol); box-shadow: 0 0 0 3px rgba(27,110,124,0.1);
+  }
+  .pilot-check { grid-column: 1 / -1; margin-top: 0.5rem; }
+  .pilot-check-label {
+    display: flex; align-items: flex-start; gap: 0.9rem; cursor: pointer;
+    background: var(--white); border: 1.5px solid rgba(27,110,124,0.15);
+    border-radius: 12px; padding: 1.3rem 1.4rem; transition: border-color 0.25s, background 0.25s;
+  }
+  .pilot-check-label:hover { border-color: var(--amber); background: #fffdf7; }
+  .pilot-check input[type="checkbox"] {
+    width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; accent-color: var(--petrol); cursor: pointer;
+  }
+  .pilot-check-text strong { display: block; font-size: 0.95rem; color: var(--petrol-dark); margin-bottom: 0.25rem; }
+  .pilot-check-text span { font-size: 0.88rem; color: var(--gray); line-height: 1.5; }
+  .form-submit { grid-column: 1 / -1; margin-top: 0.8rem; }
+  .btn-submit {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    background: var(--amber); color: var(--petrol-dark); padding: 1.1rem 2rem; border-radius: 50px;
+    font-weight: 700; font-size: 1.1rem; border: none; cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 25px rgba(255,189,89,0.3);
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(255,189,89,0.45); }
+  .form-note { text-align: center; font-size: 0.85rem; color: var(--gray); margin-top: 1rem; }
+  .form-success {
+    display: none; text-align: center; padding: 3rem 2rem;
+    background: var(--petrol-light); border-radius: 20px; border: 1px solid rgba(27,110,124,0.15);
+  }
+  .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .form-success h3 { font-family: 'Lora', serif; font-size: 1.6rem; color: var(--petrol-dark); margin-bottom: 0.8rem; }
+  .form-success p { color: var(--gray); font-size: 1.05rem; }
+
+  /* PILOT */
+  .pilot { background: var(--bg); }
+  .pilot-box {
+    background: var(--white); border-radius: 24px; padding: 3rem;
+    border: 2px solid var(--amber); position: relative; overflow: hidden;
+    max-width: 800px; margin: 0 auto;
+  }
+  .pilot-box::before {
+    content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,189,89,0.12) 0%, transparent 70%); border-radius: 50%;
+  }
+  .pilot-badge {
+    display: inline-block; background: var(--amber); color: var(--petrol-dark);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 1.1rem; border-radius: 50px; margin-bottom: 1.2rem; position: relative;
+  }
+  .pilot-box h2 {
+    font-family: 'Lora', serif; font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--petrol-dark); margin-bottom: 1.2rem; position: relative;
+  }
+  .pilot-box p { font-size: 1.02rem; color: var(--dark); line-height: 1.8; margin-bottom: 1rem; position: relative; }
+  .pilot-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.8rem 0; position: relative; }
+  .pilot-feature { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.95rem; }
+  .pilot-feature-icon {
+    flex-shrink: 0; width: 28px; height: 28px; background: var(--petrol-light);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
+  }
+  .pilot-note {
+    background: var(--petrol-light); border-radius: 12px; padding: 1.2rem 1.5rem;
+    font-size: 0.92rem; color: var(--petrol-dark); margin-top: 0.5rem; line-height: 1.6;
+  }
+
+  /* UEBER MICH MINI */
+  .about-mini { background: var(--petrol-light); }
+  .about-mini-inner {
+    display: grid; grid-template-columns: 220px 1fr; gap: 3rem;
+    align-items: center; max-width: 820px; margin: 0 auto;
+  }
+  .about-avatar {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--petrol);
+    border-radius: 18px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .about-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--amber);
+  }
+  .about-mini-text p { font-size: 1.02rem; margin-bottom: 0.8rem; line-height: 1.7; }
+  .credentials-mini { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+  .credential-mini {
+    background: var(--white); padding: 0.4rem 0.9rem; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 600; color: var(--petrol-dark);
+    border: 1px solid rgba(27,110,124,0.12);
+  }
+
+  /* FOOTER */
+  footer { background: var(--petrol-dark); color: rgba(255,255,255,0.7); text-align: center; padding: 2.5rem 2rem; }
+  footer .footer-logo { height: 36px; margin-bottom: 1rem; opacity: 0.8; }
+  footer p { font-size: 0.85rem; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-links { margin-top: 0.8rem; display: flex; justify-content: center; gap: 2rem; }
+  .footer-links a { font-size: 0.85rem; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .pain-grid { grid-template-columns: 1fr; }
+    .erfahren-grid { grid-template-columns: 1fr; }
+    .herzstuck-box { margin-top: 0; }
+    .termin-grid { grid-template-columns: 1fr; }
+    .pilot-features { grid-template-columns: 1fr; }
+    .about-mini-inner { grid-template-columns: 1fr; text-align: center; }
+    .about-avatar { margin: 0 auto; max-width: 280px; }
+    .credentials-mini { justify-content: center; }
+  }
+  @media (max-width: 700px) {
+    nav ul {
+      display: none; position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--petrol); flex-direction: column;
+      padding: 1rem 2rem 1.5rem; gap: 0.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    nav ul.open { display: flex; }
+    nav ul li a { font-size: 1rem; padding: 0.5rem 0; display: block; }
+    .nav-toggle { display: block; }
+    section { padding: 3.5rem 1.2rem; }
+    .hero { padding: 7rem 1.2rem 4rem; }
+    .hero-logo { width: 300px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .pilot-box { padding: 2rem 1.5rem; }
+    .hero-meta { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="Logo_PlanB_ohneText_white_transparent.png" alt="MY PLAN B" class="nav-logo">
+  <button class="nav-toggle" aria-label="Menü" onclick="document.querySelector('nav ul').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="index.html">Zur Hauptseite</a></li>
+    <li><a href="#anmeldung">Jetzt anmelden</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="Logo_Plan_w-transparent.png" alt="MY PLAN B – Orientierung, die passt" class="hero-logo">
+
+    <h1>Schulwechsel, Lehre, Matura &ndash; Welcher Weg passt für <span class="highlight">Ihr Kind?</span></h1>
+    <p>Ein Abend, der Klarheit bringt. Für Eltern, die endlich Antworten wollen.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">&#128205; <strong>Plankenhof, Pill</strong></div>
+      <div class="hero-meta-item">&#128197; <strong>Freitag, 24. April 2026</strong></div>
+      <div class="hero-meta-item">&#128336; <strong>19:00 Uhr</strong></div>
+      <div class="hero-meta-item">&#128101; <strong>Nur 50 Plätze</strong></div>
+    </div>
+    <a href="#anmeldung" class="hero-cta">
+      Jetzt Platz sichern
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <span class="hero-kostenlos">Der Vortrag ist kostenlos und ohne Verpflichtung.</span>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="container reveal">
+    <div class="section-label">Kommt Ihnen das bekannt vor?</div>
+    <h2 class="section-title">Das erleben viele Familien &ndash;<br>Sie sind nicht allein.</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">&#128201;</div>
+        <div>
+          <h3>Noten im Sinkflug</h3>
+          <p>Trotz Anstrengung werden die Leistungen schlechter &ndash; und niemand versteht warum.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128532;</div>
+        <div>
+          <h3>Rückzug und Unmut</h3>
+          <p>Wirkt unmotiviert, unglücklich, zieht sich zurück &ndash; das Lachen fehlt.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128241;</div>
+        <div>
+          <h3>Handy statt Hausaufgaben</h3>
+          <p>Ablenkung scheint interessanter als alles, was die Schule bietet.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128172;</div>
+        <div>
+          <h3>Feedback der Lehrkräfte</h3>
+          <p>„Abwesend. Träumt. Nimmt nicht teil.“ &ndash; aber was steckt dahinter?</p>
+        </div>
+      </div>
+    </div>
+    <div class="pain-bridge">
+      <p>Häufig ist es keine Faulheit.
+          <span>Die Frage ist: Wie ist dieser junge Mensch für diese Welt aufgestellt - und was braucht er oder sie wirklich?</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WAS SIE ERFAHREN -->
+<section class="erfahren">
+  <div class="container reveal">
+    <div class="section-label">Was erfahren Sie im Vortrag?</div>
+    <h2 class="section-title">Ein Abend. Echte Klarheit.</h2>
+    <div class="erfahren-grid">
+      <div>
+        <ul class="checklist">
+          <li>Warum der klassische Bildungsweg für viele nicht mehr funktioniert</li>
+          <li>Wie unterschiedliche Persönlichkeiten unterschiedlich lernen und entscheiden</li>
+          <li>Was junge Menschen wirklich brauchen, um ihren Weg zu finden</li>
+          <li>Wie MY PLAN B konkret funktioniert &ndash; mit einem echten Praxisbeispiel</li>
+        </ul>
+      </div>
+      <div class="herzstuck-box">
+        <div class="herzstuck-label">Das Herzstück des Abends</div>
+        <h3>Ein echtes Fallbeispiel &ndash; live</h3>
+        <p>Den größten Teil des Abends widmen wir einem echten Fall: einem jungen Menschen, dessen Weg sich durch ein MY PLAN B Profil verändert hat.</p>
+        <p style="margin-top:0.8rem;">Sie sehen live, wie das Profil entsteht, was es zeigt &ndash; und warum die Ergebnisse so anders sind als bei klassischen Tests.</p>
+        <div class="mitnehmen">Sie gehen mit einem klaren Verständnis nach Hause &ndash; was Ihr Kind wirklich braucht, und welche nächsten Schritte Sinn machen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMIN -->
+<section class="termin-section">
+  <div class="container reveal">
+    <div class="section-label" style="text-align:center">Termin &amp; Zielgruppe</div>
+    <h2 class="section-title" style="text-align:center">Wann, wo &ndash; und für wen?</h2>
+    <div class="termin-grid">
+      <div class="termin-box">
+        <h3>Termin &amp; Ort</h3>
+        <div class="termin-row">
+          <span class="termin-icon">&#128205;</span>
+          <p><strong>Plankenhof, Pill</strong><br>Tirol, Österreich</p>
+        </div>
+        <div class="termin-row">
+          <span class="termin-icon">&#128197;</span>
+          <p><strong>Freitag, 24. April 2026</strong><br>Beginn: 19:00 Uhr</p>
+        </div>
+        <div class="termin-row">
+          <span class="termin-icon">&#128336;</span>
+          <p><strong>ca. 1,5 Stunden</strong><br>inkl. Q&amp;A und Raum für Fragen</p>
+        </div>
+        <div class="termin-row">
+          <span class="termin-icon">&#128101;</span>
+          <p><strong>Nur 50 Plätze</strong><br>Anmeldung bis 20. April 2026</p>
+        </div>
+        <div class="termin-kostenlos">&#10003; Der Vortrag ist kostenlos.</div>
+      </div>
+      <div class="fuer-wen-box">
+        <h3>Für wen ist dieser Vortrag?</h3>
+        <ul>
+          <li>Eltern und Erziehungsberechtigte von Kindern und Jugendlichen</li>
+          <li>Lehrer:innen und Bildungsberater:innen</li>
+          <li>Interessierte Jugendliche sind herzlich willkommen</li>
+          <li>Therapeut:innen aller Fachrichtungen</li>
+          <li>Generell Interessierte</li>
+        </ul>
+        <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--gray); line-height:1.6;">
+          Sie kennen eine Schule oder Organisation, für die dieser Vortrag interessant wäre? Leiten Sie diese Einladung gerne weiter.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-inner reveal">
+    <div class="testimonial-quote">„</div>
+    <blockquote>15 Jahre, HTL, Noten im Sinkflug. Lehrer sagten: Er träumt, ist abwesend. MY PLAN B zeigte einen völlig anderen Lerntyp &ndash; praktisch, im richtigen Umfeld voller Energie. Nach Schnuppertagen fiel die Wahl auf eine Mechatronik-Lehre mit IT-Schwerpunkt. Heute ist er wie ausgewechselt.</blockquote>
+    <cite>&ndash; Mutter eines Jugendlichen aus Tirol</cite>
+  </div>
+</section>
+
+<!-- ANMELDUNG -->
+<section class="anmeldung" id="anmeldung">
+  <div class="container reveal">
+    <div class="anmeldung-inner">
+      <div class="section-label" style="text-align:center">Jetzt anmelden</div>
+      <h2 class="section-title" style="text-align:center">Platz sichern &ndash; kostenlos</h2>
+      <p class="form-subtitle">Nur 50 Plätze. Anmeldung verbindlich, aber kostenlos und ohne jede Verpflichtung.</p>
+      <div id="anmelde-form">
+        <form id="registration-form" class="form-grid" novalidate>
+          <div class="form-group">
+            <label for="vorname">Vorname *</label>
+            <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required>
+          </div>
+          <div class="form-group">
+            <label for="nachname">Nachname *</label>
+            <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" required>
+          </div>
+          <div class="form-group full">
+            <label for="email">E-Mail-Adresse *</label>
+            <input type="email" id="email" name="email" placeholder="ihre@email.at" required>
+          </div>
+          <div class="form-group full">
+            <label for="telefon">Telefon <span style="font-weight:400;color:var(--gray)">(optional)</span></label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+43 ...">
+          </div>
+          <div class="pilot-check">
+            <label class="pilot-check-label">
+              <input type="checkbox" id="pilot" name="pilot" value="Ja, interessiert">
+              <div class="pilot-check-text">
+                <strong>&#10022; Ich interessiere mich für das MY PLAN B Pilotprojekt</strong>
+                <span>Möchten Sie mehr über das Pilotprojekt erfahren? Ich melde mich nach Ihrer Anmeldung persönlich bei Ihnen. Keine Verpflichtung.</span>
+              </div>
+            </label>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit">
+              Jetzt anmelden
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+        <p class="form-note">* Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</p>
+      </div>
+      <div class="form-success" id="form-success">
+        <div class="success-icon">&#10003;</div>
+        <h3>Anmeldung erhalten!</h3>
+        <p>Ich freue mich, Sie am 24. April in Pill begrüßen zu dürfen. Eine Bestätigung kommt in Kürze per E-Mail.</p>
+        <p style="margin-top:0.8rem;">Haben Sie das Pilotprojekt angekreuzt? Ich melde mich persönlich bei Ihnen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOTPROJEKT -->
+<section class="pilot">
+  <div class="container reveal">
+    <div class="pilot-box">
+      <div class="pilot-badge">Pilotprojekt</div>
+      <h2>Das MY PLAN B Orientierungsprofil &ndash;<br>zum Kennenlernen</h2>
+      <p>Im Rahmen des Pilotprojekts haben Sie die Möglichkeit, das vollständige MY PLAN B Orientierungsprofil für Ihr Kind zu einem reduzierten Pilotpreis von <strong>€ 79</strong> zu erhalten (Normalpreis: € 150) – inklusive persönlichem Beratungsgespräch.</p>
+      <div class="pilot-features">
+        <div class="pilot-feature">
+          <div class="pilot-feature-icon">&#128203;</div>
+          <div>Persönliches Orientierungsprofil – Eltern- und Schüler:innen-Version</div>
+        </div>
+        <div class="pilot-feature">
+          <div class="pilot-feature-icon">&#128172;</div>
+          <div>50 min persönliches Beratungsgespräch mit Martina Kreiner</div>
+        </div>
+        <div class="pilot-feature">
+          <div class="pilot-feature-icon">&#127919;</div>
+          <div>Konkrete Schul- und Berufsempfehlungen für Österreich</div>
+        </div>
+        <div class="pilot-feature">
+          <div class="pilot-feature-icon">&#128274;</div>
+          <div>Alle Daten werden vertraulich behandelt und nicht weitergegeben</div>
+        </div>
+      </div>
+      <div class="pilot-note">
+        <strong>Hinweis zum Pilotprojekt:</strong> Das Profil kann anonymisiert als Praxisbeispiel im Vortrag oder für die Weiterentwicklung von MY PLAN B verwendet werden, selbstverständlich nur mit Ihrer ausdrücklicher Zustimmung. Einfach bei der Anmeldung das Häkchen setzen. Ich melde mich dann persönlich und unverbindlich bei Ihnen.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UEBER MICH -->
+<section class="about-mini">
+  <div class="container reveal">
+    <div class="about-mini-inner">
+      <div class="about-avatar">
+        <img src="MKimage_neu.png" alt="Martina Kreiner" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="about-mini-text">
+        <div class="section-label">Über mich</div>
+        <h2 class="section-title" style="margin-bottom:0.8rem;">Martina Kreiner</h2>
+        <p>Ich bin ISO-zertifizierte systemische Coachin, psychosoziale Beraterin in Ausbildung unter Supervision und Entwicklerin von MY PLAN B. Seit über 15 Jahren begleite ich Jugendliche und Erwachsene bei Persönlichkeit und Orientierung, unter anderem in Workshops an über 100 Tiroler Schulen.</p>
+        <div class="credentials-mini">
+          <span class="credential-mini">ISO-zertifizierte systemische Coachin</span>
+          <span class="credential-mini">Psychosoziale Beraterin i.A.</span>
+          <span class="credential-mini">20+ Jahre Erfahrung</span>
+          <span class="credential-mini">100+ Schulworkshops</span>
+          <span class="credential-mini">Human Design</span>
+          <span class="credential-mini">Innenarchitektin</span>
+          <span class="credential-mini">Architektur für Innen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Logo_PlanB_ohneText_white_transparent.png" alt="MY PLAN B" class="footer-logo">
+  <p>Martina Kreiner &middot; beratung@myplanb.at &middot; +43 699 196 11701 &middot; myplanb.at</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <p style="margin-top:1rem;font-size:0.8rem;opacity:0.5;">&#169; 2026 MY PLAN B &ndash; Orientierung, die passt</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelector('.nav-toggle').addEventListener('click', () => {
+    document.querySelector('nav ul').classList.toggle('open');
+  });
+
+  // ── FORMSPREE INTEGRATION ──
+  // SCHRITT: Ersetze 'XXXXXXXX' mit deinem Formspree-Code nach der Registrierung
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mgonwkzz';
+
+  document.getElementById('registration-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const vorname = document.getElementById('vorname').value.trim();
+    const nachname = document.getElementById('nachname').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!vorname || !nachname || !email) {
+      alert('Bitte füllen Sie alle Pflichtfelder aus.');
+      return;
+    }
+
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Wird gesendet...';
+    btn.disabled = true;
+
+    const formData = new FormData(this);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        document.getElementById('anmelde-form').style.display = 'none';
+        const success = document.getElementById('form-success');
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an beratung@myplanb.at');
+        btn.textContent = 'Jetzt anmelden';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an beratung@myplanb.at');
+      btn.textContent = 'Jetzt anmelden';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

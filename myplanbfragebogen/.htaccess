@@ -1,0 +1,37 @@
+RewriteEngine On
+
+# HTTPS erzwingen
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# PHP-Konfig vor direktem Zugriff schuetzen
+<Files "config.php">
+    Require all denied
+</Files>
+
+# PHP-Dateien direkt ausfuehren
+RewriteRule ^api/.*\.php$ - [L]
+
+# Trailing Slash fuer saubere URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+[^/])$ /$1/ [L,R=301]
+
+# 404 Fehlerseite
+ErrorDocument 404 /404.html
+
+# Statische Assets cachen
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+# Sicherheits-Header
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
