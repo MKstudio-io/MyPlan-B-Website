@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kündigung oder Unsicherheit: Was jetzt? – MY PLAN B | 14. April 2026</title>
+<meta name="description" content="Kostenloser Vortrag für Swarovski-Mitarbeiter:innen: Kündigung oder Unsicherheit – Was jetzt? 14. April 2026, Swarovski Wattens.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --petrol: #1B6E7C;
+    --petrol-dark: #155A66;
+    --amber: #FFBD59;
+    --peach: #E89F7B;
+    --bg: #F7F5F2;
+    --petrol-light: #E4F0F2;
+    --cream: #FDF8F3;
+    --dark: #2D2D2D;
+    --gray: #6B6B6B;
+    --white: #FFFFFF;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--dark); background: var(--bg);
+    line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--petrol); padding: 0 2rem; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(21,90,102,0.3);
+  }
+  nav .nav-logo { height: 42px; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul li a {
+    color: var(--white); text-decoration: none; font-size: 0.9rem;
+    font-weight: 500; letter-spacing: 0.03em; opacity: 0.85; transition: opacity 0.25s;
+  }
+  nav ul li a:hover { opacity: 1; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; }
+
+  /* HERO */
+  .hero {
+    min-height: 85vh; display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: linear-gradient(165deg, var(--petrol) 0%, var(--petrol-dark) 55%, #0f4a54 100%);
+    padding: 8rem 2rem 5rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -40%; right: -20%; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255,189,89,0.08) 0%, transparent 70%); border-radius: 50%;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -30%; left: -15%; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,159,123,0.06) 0%, transparent 70%); border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 820px; }
+  .hero-logo { width: 585px; margin-bottom: 1.8rem; animation: fadeDown 1s ease-out; }
+  .hero-badge {
+    display: inline-block; background: var(--amber); color: var(--petrol-dark);
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.5rem 1.4rem; border-radius: 50px; margin-bottom: 1.8rem;
+    animation: fadeDown 1s ease-out 0.1s both;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif; color: var(--white);
+    font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 700;
+    line-height: 1.25; margin-bottom: 1rem; animation: fadeUp 1s ease-out 0.2s both;
+  }
+  .hero h1 .highlight { color: var(--amber); }
+  .hero .hero-sub {
+    color: rgba(255,255,255,0.85); font-size: 1.2rem; max-width: 620px;
+    margin: 0 auto 2rem; animation: fadeUp 1s ease-out 0.35s both;
+    font-family: 'Lora', serif; font-style: italic;
+  }
+  .hero-meta {
+    display: flex; justify-content: center; gap: 2rem; margin-bottom: 2.5rem;
+    flex-wrap: wrap; animation: fadeUp 1s ease-out 0.5s both;
+  }
+  .hero-meta-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+  .hero-meta-item strong { color: var(--white); }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--amber); color: var(--petrol-dark);
+    padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem;
+    text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeUp 1s ease-out 0.6s both; box-shadow: 0 4px 25px rgba(255,189,89,0.3);
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(255,189,89,0.45); }
+  .hero-kostenlos {
+    display: block; color: rgba(255,255,255,0.6); font-size: 0.85rem;
+    margin-top: 0.8rem; animation: fadeUp 1s ease-out 0.7s both;
+  }
+
+  /* STATEMENT */
+  .statement {
+    background: var(--cream); padding: 4rem 2rem; text-align: center;
+    border-bottom: 4px solid var(--amber);
+  }
+  .statement-inner { max-width: 780px; margin: 0 auto; }
+  .statement h2 {
+    font-family: 'Lora', serif; font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+    color: var(--petrol-dark); line-height: 1.3; margin-bottom: 0.6rem;
+  }
+  .statement h2 em { color: var(--amber); font-style: italic; }
+  .statement p {
+    font-size: 1.1rem; color: var(--gray); margin-top: 1.2rem;
+    font-family: 'Lora', serif; font-style: italic;
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--petrol); margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Lora', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    color: var(--petrol-dark); line-height: 1.3; margin-bottom: 1.5rem;
+  }
+
+  /* PAIN */
+  .pain { background: var(--cream); }
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2.5rem 0; }
+  .pain-card {
+    background: var(--white); border-radius: 14px; padding: 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    border: 1px solid rgba(27,110,124,0.08); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pain-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(27,110,124,0.08); }
+  .pain-icon {
+    flex-shrink: 0; width: 44px; height: 44px; background: var(--petrol-light);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  }
+  .pain-card h3 { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--petrol-dark); margin-bottom: 0.3rem; }
+  .pain-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.5; }
+  .pain-bridge {
+    background: var(--peach); border-radius: 14px; padding: 2rem 2.5rem;
+    margin-top: 2rem; text-align: center;
+  }
+  .pain-bridge p { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--petrol-dark); font-weight: 600; }
+  .pain-bridge p span {
+    display: block; font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400; font-size: 1.05rem; margin-top: 0.6rem; color: var(--dark);
+  }
+
+  /* KEY MESSAGE */
+  .key-message {
+    background: var(--petrol); padding: 4.5rem 2rem; text-align: center;
+  }
+  .key-message-inner { max-width: 760px; margin: 0 auto; }
+  .key-message h2 {
+    font-family: 'Lora', serif; color: var(--white);
+    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.25; margin-bottom: 1.2rem;
+  }
+  .key-message .divider { width: 60px; height: 3px; background: var(--amber); margin: 1.5rem auto; }
+  .key-message p {
+    color: rgba(255,255,255,0.85); font-size: 1.15rem; line-height: 1.7;
+    font-family: 'Lora', serif; font-style: italic;
+  }
+
+  /* ERFAHREN */
+  .erfahren { background: var(--bg); }
+  .erfahren-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 0; }
+  .erfahren-left { margin-top: 0; }
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 0.9rem 0; padding-left: 2.2rem; position: relative;
+    font-size: 1.02rem; border-bottom: 1px solid rgba(27,110,124,0.1); line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--petrol); font-weight: 700; font-size: 1.1rem; }
+  .herzstuck-box {
+    background: var(--petrol); border-radius: 20px; padding: 2.5rem;
+    color: var(--white); position: relative; overflow: hidden; align-self: start; margin-top: 0;
+  }
+  .herzstuck-box::before {
+    content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,189,89,0.15) 0%, transparent 70%); border-radius: 50%;
+  }
+  .herzstuck-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 1rem; position: relative;
+  }
+  .herzstuck-box h3 {
+    font-family: 'Lora', serif; font-size: 1.4rem; margin-bottom: 1.2rem;
+    position: relative; line-height: 1.3;
+  }
+  .herzstuck-box p { font-size: 1rem; opacity: 0.9; line-height: 1.7; position: relative; }
+  .herzstuck-box .mitnehmen {
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);
+    font-family: 'Lora', serif; font-style: italic; font-size: 1.05rem; opacity: 0.95; position: relative;
+  }
+
+  /* CASE STUDY */
+  .case-study { background: var(--cream); }
+  .case-inner { max-width: 860px; margin: 0 auto; }
+  .case-before-after {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2.5rem 0;
+  }
+  .case-box {
+    background: var(--white); border-radius: 16px; padding: 2rem;
+    border: 1px solid rgba(27,110,124,0.1);
+  }
+  .case-box.after { background: var(--petrol); color: var(--white); border-color: transparent; }
+  .case-box-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--petrol); margin-bottom: 0.8rem;
+  }
+  .case-box.after .case-box-label { color: var(--amber); }
+  .case-box h3 { font-family: 'Lora', serif; font-size: 1.15rem; color: var(--petrol-dark); margin-bottom: 0.8rem; }
+  .case-box.after h3 { color: var(--white); }
+  .case-box p { font-size: 0.97rem; color: var(--gray); line-height: 1.6; }
+  .case-box.after p { color: rgba(255,255,255,0.88); }
+  .case-box .conclusion {
+    margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);
+    font-family: 'Lora', serif; font-style: italic; font-size: 0.95rem; opacity: 0.95;
+  }
+  .case-highlight {
+    background: var(--petrol-light); border-radius: 14px; padding: 1.5rem 2rem;
+    margin-top: 0.5rem; border-left: 4px solid var(--amber);
+  }
+  .case-highlight p { font-size: 1rem; color: var(--petrol-dark); line-height: 1.6; }
+  .case-highlight p strong { color: var(--petrol-dark); }
+
+  /* TESTIMONIAL */
+  .testimonial { background: var(--petrol); color: var(--white); text-align: center; padding: 5rem 2rem; }
+  .testimonial-inner { max-width: 750px; margin: 0 auto; }
+  .testimonial-quote { font-size: 2.5rem; color: var(--amber); font-family: 'Lora', serif; line-height: 1; margin-bottom: 1rem; }
+  .testimonial blockquote {
+    font-family: 'Lora', serif; font-size: 1.2rem; font-style: italic;
+    line-height: 1.7; opacity: 0.95; margin-bottom: 1.5rem;
+  }
+  .testimonial cite { font-style: normal; font-size: 0.95rem; opacity: 0.7; }
+
+  /* SO ENTSTEHT */
+  .so-entsteht { background: var(--bg); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .step-box {
+    background: var(--white); border-radius: 16px; padding: 2rem 1.8rem;
+    border: 1px solid rgba(27,110,124,0.1); text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .step-box:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(27,110,124,0.08); }
+  .step-number {
+    width: 52px; height: 52px; background: var(--petrol); color: var(--white);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 700; margin: 0 auto 1.2rem;
+  }
+  .step-box h3 { font-family: 'Lora', serif; font-size: 1.1rem; color: var(--petrol-dark); margin-bottom: 0.7rem; }
+  .step-box p { font-size: 0.95rem; color: var(--gray); line-height: 1.6; }
+  .steps-result {
+    text-align: center; margin-top: 2rem;
+    font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; color: var(--petrol-dark);
+  }
+
+  /* TERMIN */
+  .termin-section { background: var(--petrol-light); }
+  .termin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .termin-box { background: var(--petrol); border-radius: 20px; padding: 2.5rem; color: var(--white); }
+  .termin-box h3 { font-family: 'Lora', serif; font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--amber); }
+  .termin-row { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.1rem; }
+  .termin-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .termin-row p { font-size: 1rem; line-height: 1.5; opacity: 0.9; }
+  .termin-row p strong { color: var(--white); }
+  .termin-kostenlos {
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 1.05rem; font-weight: 700; color: var(--amber);
+  }
+  .fuer-wen-box { background: var(--white); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(27,110,124,0.1); }
+  .fuer-wen-box h3 { font-family: 'Lora', serif; font-size: 1.3rem; color: var(--petrol-dark); margin-bottom: 1.5rem; }
+  .fuer-wen-box ul { list-style: none; }
+  .fuer-wen-box ul li {
+    padding: 0.55rem 0; padding-left: 1.5rem; position: relative;
+    font-size: 0.98rem; border-bottom: 1px solid rgba(27,110,124,0.07); line-height: 1.5;
+  }
+  .fuer-wen-box ul li:last-child { border-bottom: none; }
+  .fuer-wen-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--petrol); font-weight: 700; }
+
+  /* PILOT */
+  .pilot { background: var(--bg); }
+  .pilot-box {
+    background: var(--white); border-radius: 24px; padding: 3rem;
+    border: 2px solid var(--amber); position: relative; overflow: hidden;
+    max-width: 800px; margin: 0 auto;
+  }
+  .pilot-box::before {
+    content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,189,89,0.12) 0%, transparent 70%); border-radius: 50%;
+  }
+  .pilot-badge {
+    display: inline-block; background: var(--amber); color: var(--petrol-dark);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 1.1rem; border-radius: 50px; margin-bottom: 1.2rem; position: relative;
+  }
+  .pilot-box h2 {
+    font-family: 'Lora', serif; font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--petrol-dark); margin-bottom: 1.2rem; position: relative;
+  }
+  .pilot-box p { font-size: 1.02rem; color: var(--dark); line-height: 1.8; margin-bottom: 1rem; position: relative; }
+  .pilot-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.8rem 0; position: relative; }
+  .pilot-feature { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.95rem; }
+  .pilot-feature-icon {
+    flex-shrink: 0; width: 28px; height: 28px; background: var(--petrol-light);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
+  }
+  .pilot-note {
+    background: var(--petrol-light); border-radius: 12px; padding: 1.2rem 1.5rem;
+    font-size: 0.92rem; color: var(--petrol-dark); margin-top: 0.5rem; line-height: 1.6;
+  }
+
+  /* UEBER MICH */
+  .about-mini { background: var(--petrol-light); }
+  .about-mini-inner {
+    display: grid; grid-template-columns: 220px 1fr; gap: 3rem;
+    align-items: center; max-width: 860px; margin: 0 auto;
+  }
+  .about-avatar {
+    width: 100%; aspect-ratio: 3/4; background: var(--petrol);
+    border-radius: 18px; overflow: hidden; flex-shrink: 0; position: relative;
+  }
+  .about-avatar::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px; background: var(--amber);
+  }
+  .about-mini-text p { font-size: 1.02rem; margin-bottom: 0.8rem; line-height: 1.7; }
+  .swarovski-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--amber); color: var(--petrol-dark);
+    padding: 0.45rem 1rem; border-radius: 8px;
+    font-size: 0.88rem; font-weight: 700; margin-bottom: 0.8rem;
+  }
+  .credentials-mini { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .credential-mini {
+    background: var(--white); padding: 0.4rem 0.9rem; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 600; color: var(--petrol-dark);
+    border: 1px solid rgba(27,110,124,0.12);
+  }
+
+  /* KONTAKT */
+  .kontakt { background: var(--cream); }
+  .kontakt-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+  .kontakt-box {
+    background: var(--white); border-radius: 20px; padding: 2.5rem;
+    border: 1px solid rgba(27,110,124,0.12); margin-top: 2.5rem; text-align: left;
+  }
+  .kontakt-box h3 {
+    font-family: 'Lora', serif; font-size: 1.3rem; color: var(--petrol-dark);
+    margin-bottom: 0.4rem;
+  }
+  .kontakt-box > p { font-size: 0.97rem; color: var(--gray); margin-bottom: 1.8rem; line-height: 1.6; }
+  .kontakt-betriebsrat {
+    background: var(--petrol-light); border-radius: 14px; padding: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .kontakt-betriebsrat h4 {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--petrol); margin-bottom: 1.1rem;
+  }
+  .betriebsrat-person {
+    display: flex; align-items: baseline; gap: 1.2rem;
+    padding: 0.55rem 0; border-bottom: 1px solid rgba(27,110,124,0.1);
+    font-size: 0.97rem;
+  }
+  .betriebsrat-person:last-of-type { border-bottom: none; }
+  .betriebsrat-person strong { color: var(--petrol-dark); min-width: 180px; font-weight: 600; }
+  .betriebsrat-person span { color: var(--gray); }
+  .betriebsrat-email {
+    margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid rgba(27,110,124,0.12);
+    font-size: 0.95rem;
+  }
+  .betriebsrat-email a {
+    color: var(--petrol); text-decoration: none; font-weight: 600;
+    word-break: break-all;
+  }
+  .betriebsrat-email a:hover { text-decoration: underline; }
+  .kontakt-direct {
+    padding-top: 1.5rem; border-top: 1px solid rgba(27,110,124,0.1); text-align: center;
+  }
+  .kontakt-direct p { font-size: 0.92rem; color: var(--gray); margin-bottom: 0.5rem; }
+  .kontakt-direct a { color: var(--petrol); text-decoration: none; font-weight: 600; }
+  .kontakt-direct a:hover { text-decoration: underline; }
+  .kontakt-note {
+    text-align: center; margin-top: 1.5rem; font-size: 0.87rem; color: var(--gray); font-style: italic;
+  }
+
+  /* FOOTER */
+  footer { background: var(--petrol-dark); color: rgba(255,255,255,0.7); text-align: center; padding: 2.5rem 2rem; }
+  footer .footer-logo { height: 36px; margin-bottom: 1rem; opacity: 0.8; }
+  footer p { font-size: 0.85rem; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-links { margin-top: 0.8rem; display: flex; justify-content: center; gap: 2rem; }
+  .footer-links a { font-size: 0.85rem; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .pain-grid { grid-template-columns: 1fr; }
+    .erfahren-grid { grid-template-columns: 1fr; }
+    .case-before-after { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .termin-grid { grid-template-columns: 1fr; }
+    .pilot-features { grid-template-columns: 1fr; }
+    .about-mini-inner { grid-template-columns: 1fr; text-align: center; }
+    .about-avatar { margin: 0 auto; max-width: 280px; }
+    .credentials-mini { justify-content: center; }
+    .swarovski-badge { display: inline-flex; }
+  }
+  @media (max-width: 700px) {
+    nav ul {
+      display: none; position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--petrol); flex-direction: column;
+      padding: 1rem 2rem 1.5rem; gap: 0.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    nav ul.open { display: flex; }
+    nav ul li a { font-size: 1rem; padding: 0.5rem 0; display: block; }
+    .nav-toggle { display: block; }
+    section { padding: 3.5rem 1.2rem; }
+    .hero { padding: 7rem 1.2rem 4rem; }
+    .hero-logo { width: 300px; }
+    .pilot-box { padding: 2rem 1.5rem; }
+    .hero-meta { gap: 1rem; }
+    .betriebsrat-person { flex-direction: column; gap: 0.1rem; }
+    .betriebsrat-person strong { min-width: unset; }
+    .statement { padding: 3rem 1.5rem; }
+    .key-message { padding: 3.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="Logo_PlanB_ohneText_white_transparent.png" alt="MY PLAN B" class="nav-logo">
+  <button class="nav-toggle" aria-label="Men&uuml;" onclick="document.querySelector('nav ul').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="index.html">Zur Hauptseite</a></li>
+    <li><a href="#kontakt">Anmeldung</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="Logo_Plan_w-transparent.png" alt="MY PLAN B &ndash; Orientierung, die passt" class="hero-logo">
+    <div class="hero-badge">Nur f&uuml;r Swarovski-Mitarbeiter:innen &middot; Kostenlos</div>
+    <h1>K&uuml;ndigung oder Unsicherheit:<br><span class="highlight">Was jetzt?</span></h1>
+    <p class="hero-sub">Ein Vortrag, der Klarheit bringt.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">&#128205; <strong>Swarovski, Wattens (intern)</strong></div>
+      <div class="hero-meta-item">&#128197; <strong>Montag, 14. April 2026</strong></div>
+      <div class="hero-meta-item">&#128336; <strong>9:30 Uhr</strong></div>
+    </div>
+    <a href="#kontakt" class="hero-cta">
+      Platz reservieren
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <span class="hero-kostenlos">Kostenlos und ohne Verpflichtung &middot; Anmeldung &uuml;ber den Betriebsrat</span>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<div class="statement reveal">
+  <div class="statement-inner">
+    <h2>Sie sind nicht Plan B.<br><em>Wir sind es auch nicht.</em></h2>
+    <p>Plan B ist der Plan, der wirklich passt. Der Menschen orientiert &ndash; statt standardisiert.</p>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="container reveal">
+    <div class="section-label">Kennen Sie das?</div>
+    <h2 class="section-title">Mehrere Kolleg:innen betroffen.<br>Jede Geschichte anders. Die Frage ist dieselbe.</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">&#128231;</div>
+        <div>
+          <h3>K&uuml;ndigung nach Jahren</h3>
+          <p>Umstrukturierung. Abbau. Pl&ouml;tzlich alles offen, nach Jahren, die z&auml;hlen sollten. Und die Frage: Was jetzt?</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128566;</div>
+        <div>
+          <h3>Noch dabei &ndash; in Unsicherheit</h3>
+          <p>Die K&uuml;ndigung ist noch nicht da. Aber das Gef&uuml;hl schon. Wann bin ich dran? Wie lange noch?</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128270;</div>
+        <div>
+          <h3>Das bin nicht mehr ich</h3>
+          <p>Jahrelang funktioniert, angepasst. Aber tief drin das Gef&uuml;hl: Das passt nicht mehr. Was will ich eigentlich wirklich?</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#129517;</div>
+        <div>
+          <h3>Stiftung? Outplacement? Selbst bewerben?</h3>
+          <p>So viele Optionen, und keine Ahnung, welche wirklich zu einem passt. Wie entscheide ich das richtig?</p>
+        </div>
+      </div>
+    </div>
+    <div class="pain-bridge">
+      <p>Die meisten f&uuml;hlen: So kann es nicht weitergehen.
+        <span>Was jetzt? Das ist die eigentliche Frage, und genau daf&uuml;r ist dieser Vortrag da.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- KEY MESSAGE -->
+<div class="key-message">
+  <div class="key-message-inner reveal">
+    <h2>Oft fehlt nicht der Einsatz.<br>Es fehlt die Klarheit.</h2>
+    <div class="divider"></div>
+    <p>Wie bin ich wirklich aufgestellt f&uuml;r diese Welt, und welcher Weg passt deshalb zu mir?</p>
+  </div>
+</div>
+
+<!-- WAS SIE ERFAHREN -->
+<section class="erfahren">
+  <div class="container reveal">
+    <div class="erfahren-grid">
+      <div class="erfahren-left">
+        <div class="section-label">Was Sie erfahren</div>
+        <h2 class="section-title">Ein Vortrag. Echte Klarheit.</h2>
+        <ul class="checklist">
+          <li>Warum der n&auml;chste Schritt oft unklar bleibt und was wirklich fehlt</li>
+          <li>Wie Sie Ihre St&auml;rken, Talente und Potenzial wirklich kennenlernen</li>
+          <li>Wie Sie Ihre Entscheidungen richtig treffen und warum das alles ver&auml;ndert</li>
+          <li>Wie aus Ihren St&auml;rken und Talenten konkrete, passende Berufsfelder und Weiterbildungsoptionen werden</li>
+          <li>Ob Swarovski-Stiftung, Outplacement oder eigener Weg: was wirklich zu Ihnen passt</li>
+        </ul>
+      </div>
+      <div class="herzstuck-box">
+        <div class="herzstuck-label">Das Herzst&uuml;ck des Vormittags</div>
+        <h3>Kein Standardtest. Keine Schubladen.</h3>
+        <p>Das MY PLAN B Orientierungsprofil fragt nicht, was Sie k&ouml;nnen oder was Sie interessiert. Es fragt: <strong>Wie sind Sie wirklich gebaut?</strong></p>
+        <p style="margin-top:0.8rem;">Wie Sie funktionieren, lernen und entscheiden, das zeigt das Profil. Und daraus entstehen echte, &ouml;sterreichische Berufs- und Weiterbildungsoptionen. Keine erfundenen M&ouml;glichkeiten. Echte n&auml;chste Schritte.</p>
+        <div class="mitnehmen">Sie gehen mit einem klaren Verst&auml;ndnis nach Hause: wie das Profil funktioniert, was es zeigt, und warum es sich von allem unterscheidet, was Sie bisher kennen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case-study">
+  <div class="container reveal">
+    <div class="case-inner">
+      <div class="section-label">Ein echtes Beispiel</div>
+      <h2 class="section-title">Sabine, 48 &ndash; HR-Abteilungsleiterin.<br>Dann die K&uuml;ndigung.</h2>
+      <div class="case-before-after">
+        <div class="case-box">
+          <div class="case-box-label">Vorher</div>
+          <h3>Jahrelang funktioniert. Jahrelang angepasst.</h3>
+          <p>Abteilungsleiterin HR in einem gro&szlig;en Unternehmen. Dann die K&uuml;ndigung &ndash; nach Jahren. Pl&ouml;tzlich alles offen.</p>
+          <p style="margin-top:0.8rem;">Die Reaktion: Lebenslauf aktualisieren. Bewerbungen schreiben. Aber in welche Richtung? Und: Was will ich eigentlich wirklich?</p>
+        </div>
+        <div class="case-box after">
+          <div class="case-box-label">Das Profil zeigte</div>
+          <h3>Der falsche Rahmen, nicht die falsche Person.</h3>
+          <p>Sabine ist nicht f&uuml;r Strukturen und Verwaltung gebaut. Sie will initiieren, gestalten, eigene Wege gehen. Jahrelang hat sie sich angepasst, an ein System, das nicht zu ihr passt.</p>
+          <div class="conclusion">Das Profil best&auml;tigte, was sie sp&uuml;rte. Und es zeigte konkret wohin die Energie will: Coaching, Beratung, eigenes Arbeiten. Es lag nicht an der Qualifikation. Es lag am falschen Rahmen.</div>
+        </div>
+      </div>
+      <div class="case-highlight">
+        <p><strong>Sabine heute:</strong> Nutzt ihre Auszeit bewusst f&uuml;r Weiterbildung. Hat eine klare berufliche Richtung gefunden. Zum ersten Mal das Gef&uuml;hl: am richtigen Weg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-inner reveal">
+    <div class="testimonial-quote">&bdquo;</div>
+    <blockquote>Die K&uuml;ndigung hat mir den Boden unter den F&uuml;&szlig;en weggezogen. MY PLAN B hat mir geholfen zu verstehen, wie ich wirklich funktioniere. Zum ersten Mal habe ich das Gef&uuml;hl: Das bin ich.</blockquote>
+    <cite>&ndash; Sabine, 48, ehem. HR-Abteilungsleiterin</cite>
+  </div>
+</section>
+
+<!-- TERMIN -->
+<section class="termin-section">
+  <div class="container reveal">
+    <div class="section-label" style="text-align:center">Termin &amp; Zielgruppe</div>
+    <h2 class="section-title" style="text-align:center">Wann, wo &ndash; und f&uuml;r wen?</h2>
+    <div class="termin-grid">
+      <div class="termin-box">
+        <h3>Termin &amp; Ort</h3>
+        <div class="termin-row">
+          <span class="termin-icon">&#128197;</span>
+          <p><strong>Montag, 14. April 2026</strong><br>Beginn: 9:30 Uhr</p>
+        </div>
+        <div class="termin-row">
+          <span class="termin-icon">&#128205;</span>
+          <p><strong>Swarovski, Wattens</strong><br>Intern (Raum wird bekannt gegeben)</p>
+        </div>
+        <div class="termin-row">
+          <span class="termin-icon">&#128336;</span>
+          <p><strong>ca. 1,5 Stunden</strong><br>inkl. Q&amp;A und Raum f&uuml;r Fragen</p>
+        </div>
+        <div class="termin-kostenlos">&#10003; Der Vortrag ist kostenlos.</div>
+      </div>
+      <div class="fuer-wen-box">
+        <h3>F&uuml;r wen ist dieser Vormittag?</h3>
+        <ul>
+          <li>Mitarbeiter:innen, die von K&uuml;ndigung betroffen sind</li>
+          <li>Mitarbeiter:innen, die noch dabei sind, aber in Unsicherheit leben</li>
+          <li>Wer nicht wei&szlig;: Swarovski Stiftung, Outplacement oder eigener Weg?</li>
+          <li>Wer seine St&auml;rken und Talente endlich wirklich kennenlernen m&ouml;chte</li>
+          <li>Wer wissen will: Was passt wirklich zu mir, und wie entscheide ich richtig?</li>
+        </ul>
+        <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--gray); line-height:1.6;">
+          Begrenzte Pl&auml;tze. Anmeldung &uuml;ber den Betriebsrat Angestellte.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER MICH -->
+<section class="about-mini">
+  <div class="container reveal">
+    <div class="about-mini-inner">
+      <div class="about-avatar">
+        <img src="MKimage_neu.png" alt="Martina Kreiner" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="about-mini-text">
+        <div class="section-label">&Uuml;ber mich</div>
+        <h2 class="section-title" style="margin-bottom:0.8rem;">Martina Kreiner</h2>
+        <div class="swarovski-badge">&#10022; Ehemalige Swarovski-Mitarbeiterin</div>
+        <p>Ich war selbst Swarovski-Mitarbeiterin. Ich kenne diesen Moment aus eigener Erfahrung, wenn der Boden unter den F&uuml;&szlig;en wegzieht. Die Frage: Was jetzt?</p>
+        <p>Vor zwei Jahren habe ich diese Entscheidung selbst getroffen: Swarovski Stiftung, zweij&auml;hrige Ausbildung zur ISO-zertifizierten systemischen Coachin und Lebens- und Sozialberaterin, daraus MY PLAN B.</p>
+        <p>Was darin steckt: &uuml;ber 15 Jahre Begleitung in Pers&ouml;nlichkeit und Orientierung, Workshops an &uuml;ber 100 Tiroler Schulen, 25 Jahre internationale Erfahrung als Innenarchitektin in London/England.</p>
+        <p>Nicht aus dem Lehrbuch. Sondern aus dem, was ich selbst gebraucht h&auml;tte.</p>
+        <div class="credentials-mini">
+          <span class="credential-mini">ISO 17024 zertifizierte Coachin</span>
+          <span class="credential-mini">Psychosoziale Beraterin i.A.</span>
+          <span class="credential-mini">Swarovski Stiftung</span>
+          <span class="credential-mini">25+ Jahre Berufserfahrung</span>
+          <span class="credential-mini">Human Design</span>
+          <span class="credential-mini">Innenarchitektin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANMELDUNG / KONTAKT -->
+<section class="kontakt" id="kontakt">
+  <div class="container reveal">
+    <div class="kontakt-inner">
+      <div class="section-label">Kostenlose Anmeldung</div>
+      <h2 class="section-title">Ihren Platz reservieren</h2>
+      <p style="color:var(--gray);font-size:1.05rem;">Begrenzte Pl&auml;tze &middot; Kostenlos und ohne Verpflichtung.</p>
+      <div class="kontakt-box">
+        <h3>Anmeldung &uuml;ber den Betriebsrat Angestellte</h3>
+        <p>Melden Sie sich direkt bei einer der folgenden Kontaktpersonen im Betriebsrat:</p>
+        <div class="kontakt-betriebsrat">
+          <h4>Betriebsrat Angestellte &ndash; DSW Kristall AG &amp; Co KG</h4>
+          <div class="betriebsrat-person">
+            <strong>Andrea Garzaner</strong>
+            <span>DW 2120</span>
+          </div>
+          <div class="betriebsrat-person">
+            <strong>Mary Manzi</strong>
+            <span>DW 2018</span>
+          </div>
+          <div class="betriebsrat-person">
+            <strong>Petra Z&ouml;hrer</strong>
+            <span>DW 1202</span>
+          </div>
+          <div class="betriebsrat-email">
+            <a href="mailto:Betriebsrat_AngestellteW1.DSW@swarovski.com">Betriebsrat_AngestellteW1.DSW@swarovski.com</a>
+          </div>
+        </div>
+        <p class="kontakt-note">Der Vortrag ist kostenlos und ohne jede Verpflichtung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Logo_PlanB_ohneText_white_transparent.png" alt="MY PLAN B" class="footer-logo">
+  <p>Martina Kreiner &middot; martina@myplanb.at &middot; +43 699 196 11701 &middot; myplanb.at</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <p style="margin-top:1rem;font-size:0.8rem;opacity:0.5;">&#169; 2026 MY PLAN B &ndash; Orientierung, die passt</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelector('.nav-toggle').addEventListener('click', () => {
+    document.querySelector('nav ul').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
