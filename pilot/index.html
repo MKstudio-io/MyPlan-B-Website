@@ -4,141 +4,390 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pilotprojekt – MY PLAN B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #155A66; }
-    .page { max-width: 680px; margin: 0 auto; }
-    .nav { background: #155A66; padding: 14px 28px; display: flex; align-items: center; justify-content: flex-end; }
-    .nav a { color: #A8D4DC; font-size: 13px; text-decoration: none; }
-    .logo-area { display: none; }
-    .hero { background: #1B6E7C; padding: 32px 28px 44px; text-align: center; }
-    .hero-badge { display: inline-block; background: #FFBD59; color: #155A66; font-size: 12px; font-weight: bold; letter-spacing: 1.5px; padding: 6px 18px; border-radius: 20px; margin-bottom: 24px; }
-    .hero h1 { font-family: Georgia, serif; font-size: 30px; color: white; line-height: 1.3; margin-bottom: 14px; }
-    .hero h1 span { color: #FFBD59; }
-    .hero p { font-size: 16px; color: #E4F0F2; line-height: 1.7; max-width: 480px; margin: 0 auto 24px; }
-    .price-line { display: inline-flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.1); border-radius: 30px; padding: 10px 24px; flex-wrap: wrap; justify-content: center; }
-    .price-line .old { font-size: 14px; color: #A8D4DC; text-decoration: line-through; }
-    .price-line .new { font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #FFBD59; }
-    .price-line .label { font-size: 13px; color: #E4F0F2; }
-    .content { padding: 36px 28px; background: #FDF8F3; }
-    .what-box { background: white; border-left: 4px solid #FFBD59; border-radius: 0 10px 10px 0; padding: 22px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-    .what-box h2 { font-family: Georgia, serif; font-size: 18px; color: #155A66; margin-bottom: 16px; }
-    .what-item { display: flex; gap: 12px; margin-bottom: 13px; align-items: flex-start; }
-    .what-dot { width: 22px; height: 22px; min-width: 22px; background: #FFBD59; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-    .what-dot span { color: #155A66; font-weight: bold; font-size: 11px; }
-    .what-item p { font-size: 15px; color: #2D2D2D; line-height: 1.5; }
-    .form-box { background: #FDF8F3; border-radius: 12px; padding: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-    .form-box h2 { font-family: Georgia, serif; font-size: 20px; color: #155A66; margin-bottom: 6px; }
-    .form-box .sub { font-size: 14px; color: #6B6B6B; margin-bottom: 22px; line-height: 1.5; }
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-size: 12px; font-weight: bold; color: #155A66; margin-bottom: 5px; letter-spacing: 0.5px; }
+    :root {
+      --petrol: #1B6E7C;
+      --petrol-dark: #155A66;
+      --amber: #FFBD59;
+      --bg: #F7F5F2;
+      --petrol-light: #E4F0F2;
+      --cream: #FDF8F3;
+      --dark: #2D2D2D;
+      --gray: #6B6B6B;
+      --white: #FFFFFF;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Source Sans 3', sans-serif; color: var(--dark); background: var(--bg); line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+    .page { flex: 1; }
+
+    nav { background: var(--petrol); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 20px rgba(21,90,102,0.3); }
+    .nav-logo { height: 42px; }
+    nav a { color: rgba(255,255,255,0.75); font-size: 0.88rem; text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--white); }
+
+    .page { max-width: 720px; margin: 0 auto; width: 100%; }
+
+    .hero { background: linear-gradient(165deg, var(--petrol) 0%, var(--petrol-dark) 55%, #0f4a54 100%); }
+    .hero-badge { display: inline-block; background: var(--amber); color: var(--petrol-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.45rem 1.4rem; border-radius: 50px; margin-bottom: 1.6rem; }
+    .hero h1 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--white); line-height: 1.3; margin-bottom: 0.8rem; }
+    .hero h1 span { color: var(--amber); }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 520px; margin: 0.8rem auto 0; }
+
+    .vortrag-picker { background: var(--cream); padding: 2.5rem 2rem; border-bottom: 1px solid rgba(27,110,124,0.08); }
+    .vortrag-picker h2 { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--petrol-dark); text-align: center; margin-bottom: 1.4rem; }
+    .vortrag-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .vortrag-card { border: 2px solid rgba(27,110,124,0.2); border-radius: 14px; padding: 1.3rem 1.1rem; cursor: pointer; background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; text-align: center; user-select: none; }
+    .vortrag-card:hover { border-color: var(--petrol); }
+    .vortrag-card.active { border-color: var(--petrol); box-shadow: 0 0 0 3px rgba(27,110,124,0.12); background: var(--petrol-light); }
+    .vortrag-date { font-size: 0.78rem; color: var(--petrol); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .vortrag-title { font-family: 'Lora', serif; font-size: 0.97rem; color: var(--dark); line-height: 1.35; margin-bottom: 0.35rem; }
+    .vortrag-ort { font-size: 0.82rem; color: var(--gray); }
+
+    .picker-prompt { text-align: center; padding: 2.5rem 2rem; color: var(--gray); font-style: italic; font-size: 0.97rem; background: var(--bg); }
+    .content-panel { display: none; }
+    .content-panel.visible { display: block; }
+    .content { padding: 2.5rem 2rem; background: var(--bg); }
+
+    .panel-heading { text-align: center; margin-bottom: 2rem; }
+    .panel-heading p { font-size: 0.95rem; color: var(--petrol-dark); font-weight: 600; }
+    .panel-heading small { display: block; font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem; }
+    .price-display { background: var(--petrol-light); border-radius: 50px; display: inline-flex; align-items: center; gap: 1rem; padding: 0.65rem 1.8rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+    .price-display .old { font-size: 0.92rem; color: var(--gray); text-decoration: line-through; }
+    .price-display .new { font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 700; color: var(--petrol-dark); }
+    .price-display .label { font-size: 0.85rem; color: var(--petrol-dark); opacity: 0.8; }
+
+    .what-box { background: var(--white); border-left: 4px solid var(--amber); border-radius: 0 12px 12px 0; padding: 1.6rem; margin-bottom: 1.8rem; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+    .what-box h3 { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--petrol-dark); margin-bottom: 1.1rem; }
+    .what-item { display: flex; gap: 0.9rem; margin-bottom: 0.9rem; align-items: flex-start; }
+    .what-item:last-child { margin-bottom: 0; }
+    .what-num { width: 22px; height: 22px; min-width: 22px; background: var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 3px; font-size: 0.72rem; font-weight: 700; color: var(--petrol-dark); }
+    .what-item p { font-size: 0.97rem; color: var(--dark); line-height: 1.55; }
+
+    .form-box { background: var(--white); border-radius: 16px; padding: 2rem; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+    .form-box h2 { font-family: 'Lora', serif; font-size: 1.25rem; color: var(--petrol-dark); margin-bottom: 0.4rem; }
+    .form-box .sub { font-size: 0.88rem; color: var(--gray); margin-bottom: 1.4rem; line-height: 1.6; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.76rem; font-weight: 700; color: var(--petrol-dark); margin-bottom: 0.35rem; letter-spacing: 0.05em; text-transform: uppercase; }
     .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1.5px solid #A8D4DC;
-      border-radius: 8px;
-      font-size: 15px;
-      background-color: #E4F0F2 !important;
-      color: #2D2D2D !important;
-      color-scheme: light;
-      -webkit-text-fill-color: #2D2D2D;
-      outline: none;
-      transition: border-color 0.2s;
-      appearance: none;
-      -webkit-appearance: none;
+      width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid #A8D4DC; border-radius: 10px;
+      font-size: 0.97rem; font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--petrol-light) !important; color: var(--dark) !important;
+      color-scheme: light; -webkit-text-fill-color: var(--dark);
+      outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none;
     }
     .form-group input::placeholder { color: #7CADB8 !important; opacity: 1; }
-    .form-group input:focus { border-color: #1B6E7C; background-color: #D0E8EE !important; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .submit-btn { width: 100%; background: #FFBD59; color: #155A66; border: none; padding: 15px; border-radius: 30px; font-family: Georgia, serif; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: background 0.2s; }
-    .submit-btn:hover { background: #F0A800; }
-    .note { font-size: 12px; color: #6B6B6B; text-align: center; margin-top: 12px; line-height: 1.6; }
-    .success { display: none; background: #E4F0F2; border-left: 4px solid #1B6E7C; border-radius: 0 12px 12px 0; padding: 28px; text-align: center; }
-    .success h3 { font-family: Georgia, serif; font-size: 20px; color: #155A66; margin-bottom: 10px; }
-    .success p { font-size: 14px; color: #2D2D2D; line-height: 1.7; }
-    .footer { background: #155A66; padding: 24px 28px; text-align: center; }
-    .footer p { font-family: Georgia, serif; font-size: 14px; color: white; margin-bottom: 6px; }
-    .footer small { font-size: 12px; color: #A8D4DC; }
+    .form-group input:focus { border-color: var(--petrol); background-color: #D0E8EE !important; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .submit-btn { width: 100%; background: var(--amber); color: var(--petrol-dark); border: none; padding: 1rem; border-radius: 50px; font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; margin-top: 0.8rem; transition: background 0.2s, transform 0.2s; letter-spacing: 0.02em; }
+    .submit-btn:hover { background: #F0A800; transform: translateY(-1px); }
+    .note { font-size: 0.8rem; color: var(--gray); text-align: center; margin-top: 0.9rem; line-height: 1.6; }
+
+    .footer { background: var(--petrol-dark); padding: 1.8rem 2rem; text-align: center; }
+    .footer p { font-family: 'Lora', serif; font-size: 0.92rem; color: var(--white); margin-bottom: 0.4rem; }
+    .footer small { font-size: 0.8rem; color: rgba(168,212,220,0.8); }
+
+    /* Pkg selector */
+    .pkg-selector { background: var(--petrol-light); border-radius: 16px; padding: 1.4rem 1.2rem; margin-bottom: 1.8rem; text-align: center; }
+    .pkg-selector-label { font-size: 0.82rem; font-weight: 700; color: var(--petrol-dark); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; }
+    .pkg-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+    .pkg-pill { border: 2px solid rgba(27,110,124,0.25); border-radius: 50px; padding: 0.55rem 1.1rem; background: var(--white); cursor: pointer; font-family: 'Source Sans 3', sans-serif; font-size: 0.88rem; color: var(--dark); transition: all 0.2s; line-height: 1.4; text-align: center; }
+    .pkg-pill strong { display: block; font-family: 'Lora', serif; font-size: 1rem; color: var(--petrol-dark); }
+    .pkg-pill:hover { border-color: var(--petrol); }
+    .pkg-pill.active { background: var(--petrol); border-color: var(--petrol); color: var(--white); }
+    .pkg-pill.active strong { color: var(--amber); }
+
+    @media (max-width: 500px) {
+      .vortrag-cards { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-inner { padding: 2.5rem 1.2rem 3rem; }
+      .content { padding: 1.8rem 1.2rem; }
+      .vortrag-picker { padding: 2rem 1.2rem; }
+      .pkg-pills { flex-direction: column; align-items: stretch; }
+      .pkg-pill { border-radius: 12px; }
+      .footer-inner { padding: 1.8rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
-<div class="page">
-  <div class="nav">
-    <a href="https://myplanb.at">← Zur Hauptseite</a>
-  </div>
 
-  <div class="hero">
-    <div class="hero-badge">PILOTPROJEKT · LIMITIERT</div>
+<nav>
+  <img src="https://myplanb.at/Logo_Plan_w-transparent.png" alt="MY PLAN B" class="nav-logo" />
+  <a href="https://myplanb.at">← Zur Hauptseite</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner" style="max-width:720px;margin:0 auto;padding:3.5rem 2rem 4rem;text-align:center;">
+    <div class="hero-badge">PILOTPHASE · LIMITIERT · BIS SOMMER 2026</div>
     <h1>Ihr persönliches Orientierungsprofil –<br><span>zum Pilotpreis</span></h1>
-    <p>Exklusiv für Teilnehmende des Vortrags. Sichern Sie sich jetzt einen der limitierten Pilotplätze.</p>
-    <div class="price-line">
-      <span class="old">€ 149</span>
-      <span class="new">€ 79</span>
-      <span class="label">inkl. persönlichem Beratungsgespräch</span>
+    <p>Exklusiv für Teilnehmende der MY PLAN B Vorträge. Sichern Sie sich jetzt einen der limitierten Pilotplätze.</p>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="vortrag-picker">
+    <h2>Welchen Vortrag haben Sie besucht?</h2>
+    <div class="vortrag-cards">
+      <div class="vortrag-card" id="card-swarovski" onclick="selectVortrag('swarovski')">
+        <div class="vortrag-date">14. April 2026</div>
+        <div class="vortrag-title">Kündigung oder Unsicherheit –<br>Was jetzt?</div>
+        <div class="vortrag-ort">📍 Swarovski Wattens</div>
+      </div>
+      <div class="vortrag-card" id="card-plankenhof" onclick="selectVortrag('plankenhof')">
+        <div class="vortrag-date">24. April 2026</div>
+        <div class="vortrag-title">Schulwechsel, Lehre, Matura –<br>Welcher Weg passt?</div>
+        <div class="vortrag-ort">📍 Plankenhof Pill</div>
+      </div>
     </div>
   </div>
 
-  <div class="content">
-    <div class="what-box">
-      <h2>Was Sie bekommen</h2>
-      <div class="what-item">
-        <div class="what-dot"><span>1</span></div>
-        <p>Persönliches Orientierungsprofil (15–20 Seiten) – wer Ihr Kind ist, wie es lernt und entscheidet</p>
-      </div>
-      <div class="what-item">
-        <div class="what-dot"><span>2</span></div>
-        <p>Konkrete Empfehlungen für Schulen, Lehrberufe oder Studienrichtungen in Österreich</p>
-      </div>
-      <div class="what-item">
-        <div class="what-dot"><span>3</span></div>
-        <p>50 Minuten persönliches Beratungsgespräch mit Martina Kreiner</p>
-      </div>
-      <div class="what-item">
-        <div class="what-dot"><span>4</span></div>
-        <p>Möglichkeit, Ihr Profil anonymisiert als Praxisbeispiel zur Verfügung zu stellen</p>
-      </div>
-    </div>
+  <div id="prompt" class="picker-prompt">↑ Bitte wählen Sie oben Ihren Vortrag aus.</div>
 
-    <div class="form-box">
-      <h2>Jetzt Interesse bekunden</h2>
-      <p class="sub">Kein Fragebogen – nur Ihre Kontaktdaten. Martina meldet sich persönlich bei Ihnen.</p>
-      <form action="https://formspree.io/f/xdawzrlv" method="POST">
-        <div class="form-group">
-          <label>VORNAME *</label>
-          <input type="text" name="Vorname" required placeholder="Ihr Vorname" />
+  <!-- Panel: Plankenhof (Schulorientierung) – alle 3 Pakete wählbar -->
+  <div id="panel-plankenhof" class="content-panel">
+    <div class="content">
+
+      <!-- Paket-Auswahl -->
+      <div class="pkg-selector">
+        <div class="pkg-selector-label">Welches Paket interessiert Sie?</div>
+        <div class="pkg-pills">
+          <button class="pkg-pill active" id="pkg-kind" onclick="selectPkg('kind')">
+            Orientierungsprofil Kind
+            <strong>€ 99</strong>
+          </button>
+          <button class="pkg-pill" id="pkg-ich" onclick="selectPkg('ich')">
+            Orientierungsprofil für mich
+            <strong>€ 139</strong>
+          </button>
+          <button class="pkg-pill" id="pkg-beide" onclick="selectPkg('beide')">
+            Kind + Elternteil
+            <strong>€ 239</strong>
+          </button>
         </div>
-        <div class="form-group">
-          <label>NACHNAME *</label>
-          <input type="text" name="Nachname" required placeholder="Ihr Nachname" />
+      </div>
+
+      <!-- Preis-Anzeige (wird per JS aktualisiert) -->
+      <div class="panel-heading" style="margin-bottom:1.6rem;">
+        <div class="price-display">
+          <span class="old" id="pkg-old">€ 149</span>
+          <span class="new" id="pkg-new">€ 99</span>
+          <span class="label" id="pkg-label">inkl. 50 min Beratungsgespräch</span>
         </div>
-        <div class="form-group">
-          <label>E-MAIL *</label>
-          <input type="email" name="E-Mail" required placeholder="ihre@email.at" />
+        <small>Pilotpreis gültig bis Juli 2026</small>
+      </div>
+
+      <!-- Was Sie bekommen (wird per JS gewechselt) -->
+      <div class="what-box" id="wb-kind">
+        <h3>Was Sie bekommen</h3>
+        <div class="what-item">
+          <div class="what-num">1</div>
+          <p>Persönliches Orientierungsprofil (15–20 Seiten) – wer Ihr Kind ist, wie es lernt und entscheidet</p>
         </div>
-        <div class="form-group">
-          <label>TELEFON (optional)</label>
-          <input type="tel" name="Telefon" placeholder="+43 ..." />
+        <div class="what-item">
+          <div class="what-num">2</div>
+          <p>Konkrete Empfehlungen für Schulen, Lehrberufe oder Studienrichtungen in Österreich</p>
         </div>
-        <div class="form-row">
+        <div class="what-item">
+          <div class="what-num">3</div>
+          <p>50 Minuten persönliches Beratungsgespräch mit Martina Kreiner</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">4</div>
+          <p>Möglichkeit, das Profil anonymisiert als Praxisbeispiel zur Verfügung zu stellen</p>
+        </div>
+      </div>
+      <div class="what-box" id="wb-ich" style="display:none;">
+        <h3>Was Sie bekommen</h3>
+        <div class="what-item">
+          <div class="what-num">1</div>
+          <p>Persönliches Orientierungsprofil (15–20 Seiten) – wer Sie sind, wie Sie entscheiden, was Sie antreibt</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">2</div>
+          <p>Konkrete Empfehlungen für Berufsfelder, neue Richtungen und nächste Schritte</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">3</div>
+          <p>50 Minuten persönliches Beratungsgespräch mit Martina Kreiner</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">4</div>
+          <p>Möglichkeit, das Profil anonymisiert als Praxisbeispiel zur Verfügung zu stellen</p>
+        </div>
+      </div>
+      <div class="what-box" id="wb-beide" style="display:none;">
+        <h3>Was Sie bekommen</h3>
+        <div class="what-item">
+          <div class="what-num">1</div>
+          <p>2 persönliche Orientierungsprofile (je 15–20 Seiten) – für Ihr Kind und für Sie</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">2</div>
+          <p>Konkrete Empfehlungen für Ihr Kind (Schule, Lehre, Matura) und für Sie persönlich</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">3</div>
+          <p>2 x 50 Minuten persönliches Beratungsgespräch mit Martina Kreiner</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">4</div>
+          <p>Möglichkeit, die Profile anonymisiert als Praxisbeispiele zur Verfügung zu stellen</p>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h2>Jetzt Interesse bekunden</h2>
+        <p class="sub">Kein Fragebogen – nur Ihre Kontaktdaten. Martina meldet sich persönlich bei Ihnen.</p>
+        <form action="https://formspree.io/f/xdawzrlv" method="POST">
+          <input type="hidden" name="Vortrag" value="24. April 2026 · Plankenhof Pill" />
+          <input type="hidden" name="Paket" id="form-paket" value="Orientierungsprofil Kind (€99)" />
           <div class="form-group">
-            <label>ALTER DES KINDES</label>
-            <input type="number" name="Alter Kind" min="8" max="20" placeholder="z.B. 14" />
+            <label>Vorname *</label>
+            <input type="text" name="Vorname" required placeholder="Ihr Vorname" />
           </div>
           <div class="form-group">
-            <label>SCHULE / STUFE</label>
-            <input type="text" name="Schule Stufe" placeholder="z.B. NMS, 3. Klasse" />
+            <label>Nachname *</label>
+            <input type="text" name="Nachname" required placeholder="Ihr Nachname" />
           </div>
-        </div>
-        <button class="submit-btn" type="submit">Ich bin dabei →</button>
-        <p class="note">Keine Verpflichtung. Martina meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.<br>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</p>
-      </form>
+          <div class="form-group">
+            <label>E-Mail *</label>
+            <input type="email" name="E-Mail" required placeholder="ihre@email.at" />
+          </div>
+          <div class="form-group">
+            <label>Telefon (optional)</label>
+            <input type="tel" name="Telefon" placeholder="+43 ..." />
+          </div>
+          <!-- Felder für Kind (sichtbar bei "kind" und "beide") -->
+          <div id="fields-kind">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Alter des Kindes</label>
+                <input type="number" name="Alter Kind" min="8" max="20" placeholder="z.B. 14" />
+              </div>
+              <div class="form-group">
+                <label>Schule / Stufe</label>
+                <input type="text" name="Schule Stufe" placeholder="z.B. NMS, 3. Klasse" />
+              </div>
+            </div>
+          </div>
+          <!-- Felder für Erwachsene (sichtbar bei "ich" und "beide") -->
+          <div id="fields-ich" style="display:none;">
+            <div class="form-group">
+              <label>Aktuelle Situation (optional)</label>
+              <input type="text" name="Situation" placeholder="z.B. Jobsuche, Neuorientierung, Jobwechsel" />
+            </div>
+          </div>
+          <button class="submit-btn" type="submit">Ich bin dabei →</button>
+          <p class="note">Keine Verpflichtung. Martina meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.<br>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</p>
+        </form>
+      </div>
     </div>
   </div>
 
-  <div class="footer">
+  <!-- Panel: Erwachsene (Swarovski) -->
+  <div id="panel-swarovski" class="content-panel">
+    <div class="content">
+      <div class="panel-heading">
+        <p>Für Erwachsene · Berufliche &amp; persönliche Neuorientierung</p>
+        <div class="price-display">
+          <span class="old">€ 189</span>
+          <span class="new">€ 139</span>
+          <span class="label">inkl. 50 min Beratungsgespräch</span>
+        </div>
+        <small>Pilotpreis gültig bis Juli 2026</small>
+      </div>
+      <div class="what-box">
+        <h3>Was Sie bekommen</h3>
+        <div class="what-item">
+          <div class="what-num">1</div>
+          <p>Persönliches Orientierungsprofil (15–20 Seiten) – wer Sie sind, wie Sie entscheiden, was Sie antreibt</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">2</div>
+          <p>Konkrete Empfehlungen für Berufsfelder, neue Richtungen und nächste Schritte – passend zu Ihrer Persönlichkeit</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">3</div>
+          <p>50 Minuten persönliches Beratungsgespräch mit Martina Kreiner</p>
+        </div>
+        <div class="what-item">
+          <div class="what-num">4</div>
+          <p>Möglichkeit, Ihr Profil anonymisiert als Praxisbeispiel zur Verfügung zu stellen</p>
+        </div>
+      </div>
+      <div class="form-box">
+        <h2>Jetzt Interesse bekunden</h2>
+        <p class="sub">Kein Fragebogen – nur Ihre Kontaktdaten. Martina meldet sich persönlich bei Ihnen.</p>
+        <form action="https://formspree.io/f/xdawzrlv" method="POST">
+          <input type="hidden" name="Vortrag" value="14. April 2026 · Swarovski Wattens (Neuorientierung)" />
+          <div class="form-group">
+            <label>Vorname *</label>
+            <input type="text" name="Vorname" required placeholder="Ihr Vorname" />
+          </div>
+          <div class="form-group">
+            <label>Nachname *</label>
+            <input type="text" name="Nachname" required placeholder="Ihr Nachname" />
+          </div>
+          <div class="form-group">
+            <label>E-Mail *</label>
+            <input type="email" name="E-Mail" required placeholder="ihre@email.at" />
+          </div>
+          <div class="form-group">
+            <label>Telefon (optional)</label>
+            <input type="tel" name="Telefon" placeholder="+43 ..." />
+          </div>
+          <div class="form-group">
+            <label>Aktuelle Situation (optional)</label>
+            <input type="text" name="Situation" placeholder="z.B. Jobsuche, Neuorientierung, Jobwechsel" />
+          </div>
+          <button class="submit-btn" type="submit">Ich bin dabei →</button>
+          <p class="note">Keine Verpflichtung. Martina meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.<br>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-inner" style="max-width:720px;margin:0 auto;padding:1.8rem 2rem;text-align:center;">
     <p>MY PLAN B – Orientierung, die passt.</p>
     <small>Martina Kreiner · martina@myplanb.at · +43 699 196 11701 · myplanb.at</small>
   </div>
 </div>
+
+<script>
+const pkgData = {
+  kind:  { old: '€ 149', new: '€ 99',  label: 'inkl. 50 min Beratungsgespräch', paket: 'Orientierungsprofil Kind (€99)' },
+  ich:   { old: '€ 189', new: '€ 139', label: 'inkl. 50 min Beratungsgespräch', paket: 'Orientierungsprofil Erwachsene (€139)' },
+  beide: { old: '€ 289', new: '€ 239', label: 'inkl. 2 x 50 min Beratungsgespräch', paket: 'Orientierungsprofile Kind + Elternteil (€239)' }
+};
+
+function selectPkg(which) {
+  ['kind','ich','beide'].forEach(p => {
+    document.getElementById('pkg-' + p).classList.toggle('active', p === which);
+    document.getElementById('wb-' + p).style.display = p === which ? 'block' : 'none';
+  });
+  const d = pkgData[which];
+  document.getElementById('pkg-old').textContent = d.old;
+  document.getElementById('pkg-new').textContent = d.new;
+  document.getElementById('pkg-label').textContent = d.label;
+  document.getElementById('form-paket').value = d.paket;
+  document.getElementById('fields-kind').style.display = (which === 'kind' || which === 'beide') ? 'block' : 'none';
+  document.getElementById('fields-ich').style.display  = (which === 'ich'  || which === 'beide') ? 'block' : 'none';
+}
+
+function selectVortrag(which) {
+  document.getElementById('card-plankenhof').classList.toggle('active', which === 'plankenhof');
+  document.getElementById('card-swarovski').classList.toggle('active', which === 'swarovski');
+  document.getElementById('prompt').style.display = 'none';
+  document.getElementById('panel-plankenhof').classList.toggle('visible', which === 'plankenhof');
+  document.getElementById('panel-swarovski').classList.toggle('visible', which === 'swarovski');
+  document.getElementById('panel-' + which).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
 </body>
 </html>
