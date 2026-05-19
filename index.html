@@ -66,6 +66,19 @@
     transition: opacity 0.25s;
   }
   nav ul li a:hover { opacity: 1; }
+  nav ul li a.nav-cta {
+    background: var(--amber);
+    color: var(--petrol-dark);
+    padding: 0.45rem 1.1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    opacity: 1;
+    transition: background 0.25s, transform 0.2s;
+  }
+  nav ul li a.nav-cta:hover {
+    background: #ffc93a;
+    transform: translateY(-1px);
+  }
 
   .nav-toggle {
     display: none;
@@ -1220,7 +1233,7 @@
     <li><a href="#so-funktionierts">So funktioniert's</a></li>
     <li><a href="#ueber-mich">Über mich</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
-    <li><a href="vortrag.html">Nächster Termin →</a></li>
+    <li><a href="schulorientierung-vortrag.html" class="nav-cta">Zum Vortrag →</a></li>
   </ul>
 </nav>
 
@@ -1240,8 +1253,8 @@
       <p class="funnel-3">Kein Standardtest. Für Ihr Kind. Für Sie.</p>
     </div>
     <div class="hero-ctas">
-      <a href="vortrag.html" class="hero-cta">
-        Zum Vortrag am 24.4.
+      <a href="schulorientierung-vortrag.html" class="hero-cta">
+        Online-Vortrag &ndash; Jetzt anmelden
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="#so-funktionierts" class="hero-cta-secondary">

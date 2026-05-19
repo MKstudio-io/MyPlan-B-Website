@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kündigung oder Unsicherheit: Was jetzt? – MY PLAN B | 14. April 2026</title>
-<meta name="description" content="Kostenloser Vortrag für Swarovski-Mitarbeiter:innen: Kündigung oder Unsicherheit – Was jetzt? 14. April 2026, Swarovski Wattens.">
+<title>Kündigung, Unsicherheit, KI. Orientierung als Prävention | MY PLAN B | Swarovski Juni 2026</title>
+<meta name="description" content="Kostenloser Vortrag für Swarovski-Mitarbeiter:innen: Orientierung in unsicheren Zeiten – für Sie und Ihre Kinder. 23. Juni 2026, Swarovski Wattens.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
   }
   .hero h1 .highlight { color: var(--amber); }
   .hero .hero-sub {
-    color: rgba(255,255,255,0.85); font-size: 1.2rem; max-width: 620px;
+    color: rgba(255,255,255,0.85); font-size: 1.35rem; max-width: 620px;
     margin: 0 auto 2rem; animation: fadeUp 1s ease-out 0.35s both;
     font-family: 'Lora', serif; font-style: italic;
   }
@@ -401,6 +401,56 @@
   .footer-links { margin-top: 0.8rem; display: flex; justify-content: center; gap: 2rem; }
   .footer-links a { font-size: 0.85rem; }
 
+  /* CASE EXTRA */
+  .case-extra {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0;
+  }
+  .case-mini-card {
+    background: var(--white); border-radius: 16px; padding: 1.8rem;
+    border: 1px solid rgba(27,110,124,0.1);
+  }
+  .case-mini-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--petrol); margin-bottom: 0.5rem;
+  }
+  .case-mini-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; color: var(--petrol-dark); margin-bottom: 0.3rem; }
+  .case-mini-card .case-mini-sub { font-size: 0.88rem; color: var(--gray); font-style: italic; margin-bottom: 0.8rem; }
+  .case-mini-result {
+    background: var(--petrol-light); border-radius: 10px; padding: 0.9rem 1.1rem;
+    font-size: 0.88rem; color: var(--petrol-dark); border-left: 3px solid var(--petrol);
+    margin-top: 0.8rem; line-height: 1.6;
+  }
+
+  /* ANGEBOT */
+  .angebot { background: var(--bg); }
+  .angebot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .angebot-card {
+    background: var(--white); border-radius: 16px; padding: 2rem 1.8rem;
+    border: 1px solid rgba(27,110,124,0.1); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .angebot-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(27,110,124,0.08); }
+  .angebot-card.highlight { background: var(--petrol); border-color: var(--amber); }
+  .angebot-card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .angebot-card h3 {
+    font-family: 'Lora', serif; font-size: 1.1rem; color: var(--petrol-dark); margin-bottom: 0.8rem;
+  }
+  .angebot-card.highlight h3 { color: var(--white); }
+  .angebot-card ul { list-style: none; }
+  .angebot-card ul li {
+    padding: 0.4rem 0 0.4rem 1.5rem; position: relative;
+    font-size: 0.92rem; color: var(--gray);
+    border-bottom: 1px solid rgba(27,110,124,0.07); line-height: 1.5;
+  }
+  .angebot-card ul li:last-child { border-bottom: none; }
+  .angebot-card ul li::before { content: '\2713'; position: absolute; left: 0; color: var(--petrol); font-weight: 700; }
+  .angebot-card.highlight ul li { color: rgba(255,255,255,0.85); border-bottom-color: rgba(255,255,255,0.1); }
+  .angebot-card.highlight ul li::before { color: var(--amber); }
+  .angebot-badge {
+    display: inline-block; background: var(--amber); color: var(--petrol-dark);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.6rem;
+  }
+
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
@@ -414,6 +464,8 @@
     .case-before-after { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: 1fr; }
     .termin-grid { grid-template-columns: 1fr; }
+    .case-extra { grid-template-columns: 1fr; }
+    .angebot-grid { grid-template-columns: 1fr; }
     .pilot-features { grid-template-columns: 1fr; }
     .about-mini-inner { grid-template-columns: 1fr; text-align: center; }
     .about-avatar { margin: 0 auto; max-width: 280px; }
@@ -460,12 +512,12 @@
   <div class="hero-content">
     <img src="Logo_Plan_w-transparent.png" alt="MY PLAN B &ndash; Orientierung, die passt" class="hero-logo">
     <div class="hero-badge">Nur f&uuml;r Swarovski-Mitarbeiter:innen &middot; Kostenlos</div>
-    <h1>K&uuml;ndigung oder Unsicherheit:<br><span class="highlight">Was jetzt?</span></h1>
-    <p class="hero-sub">Ein Vortrag, der Klarheit bringt.</p>
+    <h1>K&uuml;ndigung, Unsicherheit, KI.<br><span class="highlight">Orientierung als Pr&auml;vention.</span></h1>
+    <p class="hero-sub">F&uuml;r eine Welt in rasanter Ver&auml;nderung.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">&#128205; <strong>Swarovski, Wattens (intern)</strong></div>
-      <div class="hero-meta-item">&#128197; <strong>Montag, 14. April 2026</strong></div>
-      <div class="hero-meta-item">&#128336; <strong>9:30 Uhr</strong></div>
+      <div class="hero-meta-item">&#128197; <strong>Dienstag, 23. Juni 2026</strong></div>
+      <div class="hero-meta-item">&#128336; <strong>10:00 Uhr</strong></div>
     </div>
     <a href="#kontakt" class="hero-cta">
       Platz reservieren
@@ -478,8 +530,8 @@
 <!-- STATEMENT -->
 <div class="statement reveal">
   <div class="statement-inner">
-    <h2>Sie sind nicht Plan B.<br><em>Wir sind es auch nicht.</em></h2>
-    <p>Plan B ist der Plan, der wirklich passt. Der Menschen orientiert &ndash; statt standardisiert.</p>
+    <h2>Sie sind nicht Plan B.<br><em>Plan B ist der Plan, der wirklich passt.</em></h2>
+    <p>Der Menschen orientiert &ndash; statt standardisiert.</p>
   </div>
 </div>
 
@@ -487,40 +539,40 @@
 <section class="pain">
   <div class="container reveal">
     <div class="section-label">Kennen Sie das?</div>
-    <h2 class="section-title">Mehrere Kolleg:innen betroffen.<br>Jede Geschichte anders. Die Frage ist dieselbe.</h2>
+    <h2 class="section-title">F&uuml;nf Jahre, zehn Jahre, dreiundzwanzig Jahre.<br>Die Geschichte spielt keine Rolle. Die Frage ist dieselbe.</h2>
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">&#128231;</div>
         <div>
-          <h3>K&uuml;ndigung nach Jahren</h3>
-          <p>Umstrukturierung. Abbau. Pl&ouml;tzlich alles offen, nach Jahren, die z&auml;hlen sollten. Und die Frage: Was jetzt?</p>
-        </div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">&#128566;</div>
-        <div>
-          <h3>Noch dabei &ndash; in Unsicherheit</h3>
-          <p>Die K&uuml;ndigung ist noch nicht da. Aber das Gef&uuml;hl schon. Wann bin ich dran? Wie lange noch?</p>
+          <h3>K&uuml;ndigung</h3>
+          <p>Umstrukturierung. Abbau. Pl&ouml;tzlich alles offen. Die Frage: Wohin jetzt? Und: Was will ich eigentlich wirklich?</p>
         </div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">&#128270;</div>
         <div>
           <h3>Das bin nicht mehr ich</h3>
-          <p>Jahrelang funktioniert, angepasst. Aber tief drin das Gef&uuml;hl: Das passt nicht mehr. Was will ich eigentlich wirklich?</p>
+          <p>Jahrelang funktioniert, angepasst. Aber das Gef&uuml;hl: Das passt nicht mehr. Wer bin ich au&szlig;erhalb dieser Rolle?</p>
         </div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">&#129517;</div>
+        <div class="pain-icon">&#129302;</div>
         <div>
-          <h3>Stiftung? Outplacement? Selbst bewerben?</h3>
-          <p>So viele Optionen, und keine Ahnung, welche wirklich zu einem passt. Wie entscheide ich das richtig?</p>
+          <h3>KI ver&auml;ndert alles</h3>
+          <p>Automatisierung. Neue Tools. Bin ich noch gefragt? Was bleibt von meiner Erfahrung in einer Welt, die sich gerade neu erfindet?</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128172;</div>
+        <div>
+          <h3>Bewerben &ndash; aber wohin?</h3>
+          <p>Lebenslauf schreiben. Aber in welche Richtung? Keine Ahnung, was zu mir passt. Wohin soll die n&auml;chste Phase gehen?</p>
         </div>
       </div>
     </div>
     <div class="pain-bridge">
-      <p>Die meisten f&uuml;hlen: So kann es nicht weitergehen.
-        <span>Was jetzt? Das ist die eigentliche Frage, und genau daf&uuml;r ist dieser Vortrag da.</span>
+      <p>Die Frage ist nicht: Was kannst du?
+        <span>Die Frage ist: Wie bist du gebaut &ndash; und was passt deshalb zu dir? Das ist der Unterschied, den MY PLAN B macht.</span>
       </p>
     </div>
   </div>
@@ -565,25 +617,28 @@
 <section class="case-study">
   <div class="container reveal">
     <div class="case-inner">
-      <div class="section-label">Ein echtes Beispiel</div>
-      <h2 class="section-title">Sabine, 48 &ndash; HR-Abteilungsleiterin.<br>Dann die K&uuml;ndigung.</h2>
+      <div class="section-label">Echte Geschichte</div>
+      <h2 class="section-title">Eine Situation.<br>Eine klare Richtung danach.</h2>
+
+      <!-- Sabine -->
       <div class="case-before-after">
         <div class="case-box">
-          <div class="case-box-label">Vorher</div>
-          <h3>Jahrelang funktioniert. Jahrelang angepasst.</h3>
-          <p>Abteilungsleiterin HR in einem gro&szlig;en Unternehmen. Dann die K&uuml;ndigung &ndash; nach Jahren. Pl&ouml;tzlich alles offen.</p>
-          <p style="margin-top:0.8rem;">Die Reaktion: Lebenslauf aktualisieren. Bewerbungen schreiben. Aber in welche Richtung? Und: Was will ich eigentlich wirklich?</p>
+          <div class="case-box-label">Sabine, 48</div>
+          <h3>HR-Abteilungsleiterin. Dann die K&uuml;ndigung.</h3>
+          <p>Jahrelang Strukturen gef&uuml;hrt, Teams gemanagt, Prozesse optimiert. Dann die K&uuml;ndigung &ndash; nach Jahren. Pl&ouml;tzlich alles offen.</p>
+          <p style="margin-top:0.8rem;">Die Reaktion: Lebenslauf aktualisieren. Bewerbungen schreiben. Aber in welche Richtung? Was will ich eigentlich wirklich?</p>
         </div>
         <div class="case-box after">
           <div class="case-box-label">Das Profil zeigte</div>
-          <h3>Der falsche Rahmen, nicht die falsche Person.</h3>
-          <p>Sabine ist nicht f&uuml;r Strukturen und Verwaltung gebaut. Sie will initiieren, gestalten, eigene Wege gehen. Jahrelang hat sie sich angepasst, an ein System, das nicht zu ihr passt.</p>
-          <div class="conclusion">Das Profil best&auml;tigte, was sie sp&uuml;rte. Und es zeigte konkret wohin die Energie will: Coaching, Beratung, eigenes Arbeiten. Es lag nicht an der Qualifikation. Es lag am falschen Rahmen.</div>
+          <h3>Der falsche Rahmen. Nicht die falsche Person.</h3>
+          <p>Sabine ist keine Verwalterin &ndash; sie ist eine Initiatorin. Will gestalten, eigene Wege gehen. Jahrelang angepasst an ein System, das nicht zu ihr passt.</p>
+          <div class="conclusion">Drei konkrete Richtungen: Coaching, BGM, HR-Koordination in kleineren Strukturen. Zum ersten Mal das Gef&uuml;hl: Das bin ich.</div>
         </div>
       </div>
-      <div class="case-highlight">
-        <p><strong>Sabine heute:</strong> Nutzt ihre Auszeit bewusst f&uuml;r Weiterbildung. Hat eine klare berufliche Richtung gefunden. Zum ersten Mal das Gef&uuml;hl: am richtigen Weg.</p>
+      <div class="case-highlight" style="margin-bottom:2rem;">
+        <p><strong>Sabine heute:</strong> Nutzt ihre Auszeit bewusst f&uuml;r Weiterbildung. Hat eine klare berufliche Richtung &ndash; zum ersten Mal das Gef&uuml;hl: am richtigen Weg.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -607,11 +662,11 @@
         <h3>Termin &amp; Ort</h3>
         <div class="termin-row">
           <span class="termin-icon">&#128197;</span>
-          <p><strong>Montag, 14. April 2026</strong><br>Beginn: 9:30 Uhr</p>
+          <p><strong>Dienstag, 23. Juni 2026</strong><br>Beginn: 10:00 Uhr</p>
         </div>
         <div class="termin-row">
           <span class="termin-icon">&#128205;</span>
-          <p><strong>Swarovski, Wattens</strong><br>WEX &ndash; Welcome Experience Raum</p>
+          <p><strong>Swarovski, Wattens</strong><br>intern &ndash; Raum: ATELIER (vormalig WEX Raum)</p>
         </div>
         <div class="termin-row">
           <span class="termin-icon">&#128336;</span>
@@ -620,13 +675,14 @@
         <div class="termin-kostenlos">&#10003; Der Vortrag ist kostenlos.</div>
       </div>
       <div class="fuer-wen-box">
-        <h3>F&uuml;r wen ist dieser Vormittag?</h3>
+        <h3>F&uuml;r wen ist dieser Vortrag?</h3>
         <ul>
           <li>Mitarbeiter:innen, die von K&uuml;ndigung betroffen sind</li>
-          <li>Mitarbeiter:innen, die noch dabei sind, aber in Unsicherheit leben</li>
+          <li>Mitarbeiter:innen, die in Unsicherheit &uuml;ber die eigene Zukunft leben</li>
           <li>Wer nicht wei&szlig;: Swarovski Stiftung, Outplacement oder eigener Weg?</li>
+          <li>Eltern, die sich f&uuml;r die Schulwahl ihrer Kinder interessieren</li>
           <li>Wer seine St&auml;rken und Talente endlich wirklich kennenlernen m&ouml;chte</li>
-          <li>Wer wissen will: Was passt wirklich zu mir, und wie entscheide ich richtig?</li>
+          <li>Wer wissen will: Was passt wirklich zu mir &ndash; und zu meinem Kind?</li>
         </ul>
         <p style="margin-top:1.5rem; font-size:0.95rem; color:var(--gray); line-height:1.6;">
           Begrenzte Pl&auml;tze. Anmeldung &uuml;ber den Betriebsrat Angestellte.
@@ -635,6 +691,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- ÜBER MICH -->
 <section class="about-mini">

@@ -111,8 +111,9 @@ function createMailer(array $config): PHPMailer {
     $mail->SMTPSecure = ($config['smtp_port'] == 465)
         ? PHPMailer::ENCRYPTION_SMTPS
         : PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port    = $config['smtp_port'];
-    $mail->CharSet = 'UTF-8';
+    $mail->Port     = $config['smtp_port'];
+    $mail->AuthType = 'LOGIN';
+    $mail->CharSet  = 'UTF-8';
     $mail->setFrom(
         $config['smtp_from'] ?: $config['smtp_user'],
         'myplanb'
@@ -176,7 +177,7 @@ if (!empty($errors)) {
         http_response_code(500);
         echo json_encode([
             'success' => false,
-            'error'   => 'E-Mail-Versand fehlgeschlagen. Bitte versuche es erneut.',
+            'error'   => 'E-Mail-Versand fehlgeschlagen: ' . implode('; ', $errors),
         ]);
         exit;
     }
