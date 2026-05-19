@@ -23,6 +23,7 @@ $nachname = trim($_POST['nachname'] ?? '');
 $email    = trim($_POST['email'] ?? '');
 $telefon  = trim($_POST['telefon'] ?? '');
 $termin   = trim($_POST['termin'] ?? '');
+$frage    = trim($_POST['frage'] ?? '');
 
 if (empty($vorname) || empty($nachname) || empty($email)) {
     http_response_code(400);
@@ -167,11 +168,12 @@ try {
   <table style="width:100%; border-collapse: collapse; font-size: 15px;">
     <tr style="border-bottom: 1px solid #e0ddd8;"><td style="padding: 10px 0; color:#6B6B6B; width:140px;">Name</td><td style="padding: 10px 0; font-weight:bold;">' . htmlspecialchars($vorname . ' ' . $nachname) . '</td></tr>
     <tr style="border-bottom: 1px solid #e0ddd8;"><td style="padding: 10px 0; color:#6B6B6B;">E-Mail</td><td style="padding: 10px 0;">' . htmlspecialchars($email) . '</td></tr>
-    <tr><td style="padding: 10px 0; color:#6B6B6B;">Telefon</td><td style="padding: 10px 0;">' . (empty($telefon) ? '–' : htmlspecialchars($telefon)) . '</td></tr>
+    <tr style="border-bottom: 1px solid #e0ddd8;"><td style="padding: 10px 0; color:#6B6B6B;">Telefon</td><td style="padding: 10px 0;">' . (empty($telefon) ? '–' : htmlspecialchars($telefon)) . '</td></tr>
+    <tr><td style="padding: 10px 0; color:#6B6B6B; vertical-align:top;">Frage</td><td style="padding: 10px 0;">' . (empty($frage) ? '–' : nl2br(htmlspecialchars($frage))) . '</td></tr>
   </table>
 </body>
 </html>';
-    $mail2->AltBody = "Neue Anmeldung:\n\nName: $vorname $nachname\nE-Mail: $email\nTelefon: " . ($telefon ?: '–') . "\nTermin: $termin";
+    $mail2->AltBody = "Neue Anmeldung:\n\nName: $vorname $nachname\nE-Mail: $email\nTelefon: " . ($telefon ?: '–') . "\nTermin: $termin\nFrage: " . ($frage ?: '–');
     $mail2->send();
 } catch (Exception $e) {
     $mail_error = $e->getMessage();
