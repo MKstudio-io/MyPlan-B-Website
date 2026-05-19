@@ -207,5 +207,43 @@ if ($fp) {
     fclose($fp);
 }
 
+// ============================================================
+//  BREVO API: Kontakt zur Liste hinzufügen
+// ============================================================
+$brevo_api_key = $config['brevo_api_key'] ?? '';
+$brevo_list_id = $config['brevo_list_id'] ?? 0;
+
+if (!empty($brevo_api_key) && !empty($brevo_list_id)) {
+    $contact_data = json_encode([
+        'email'      => $email,
+        'attributes' => [
+            'VORNAME'   => $vorname,
+            'NACHNAME'  => $nachname,
+            'SMS'       => $telefon,
+        ],
+        'listIds'           => [$brevo_list_id],
+        'updateEnabled'     => true,
+    ]);
+
+    $ch = curl_init('https://api.brevo.com/v3/contacts');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $contact_data,
+        CURLOPT_HTTPHEADER     => [
+            'accept: application/json',
+            'content-type: application/json',
+            'api-key: ' . $brevo_api_key,
+        ],
+    ]);
+    $brevo_response = curl_exec($ch);
+    $brevo_status   = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($brevo_status !== 201 && $brevo_status !== 204) {
+        error_log('Brevo API Fehler (' . $brevo_status . '): ' . $brevo_response);
+    }
+}
+
 // ---- Erfolg zurückgeben ----
 echo json_encode(['success' => true]);
