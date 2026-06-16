@@ -3,6 +3,19 @@ myplanbfragebogen/api/config.php
 config.php
 anmeldungen-vortrag.csv
 
+# Dependencies
+node_modules/
+
+# Large media & documents (deploy via WinSCP, not git)
+*.mp4
+*.pdf
+*.pptx
+*.ppt
+
+# Logs
+*.log
+brevo-debug.log
+
 # OS files
 .DS_Store
 Thumbs.db
